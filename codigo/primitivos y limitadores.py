@@ -63,7 +63,7 @@ def t_newline(t):
     t.lexer.lineno += len(t.value)
 
 def t_error(t):
-    print(f"[ERROR] Carácter ilegal: '{t.value[0]}' en línea {t.lexer.lineno}")
+    print(f"[ERROR] Caracter ilegal: '{t.value[0]}' en linea {t.lexer.lineno}")
     t.lexer.skip(1)
 
 def test_lexer_from_file(filepath, usuario_git="default"):
@@ -91,7 +91,7 @@ def test_lexer_from_file(filepath, usuario_git="default"):
                 break
             log.write(f"Línea {tok.lineno}: {tok.type} -> {tok.value}\n")
 
-    print(f"\nAnálisis léxico completado. Log guardado en: {log_name}")
+    print(f"\nAnalisis lexico completado. Log guardado en: {log_name}")
 
 
 #ejemplo tipos primitivos y limitadores
