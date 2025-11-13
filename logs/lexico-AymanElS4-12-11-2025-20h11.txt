@@ -1,0 +1,23 @@
+===== LOG DE TOKENS (12-11-2025-20h11) =====
+Línea 1: INTEGER -> 42
+Línea 2: FLOAT -> 3.1415
+Línea 3: BOOLEAN -> True
+Línea 4: BOOLEAN -> False
+Línea 5: STRING -> "Hola Swift"
+Línea 6: CHARACTER -> A
+Línea 7: LBRACKET -> [
+Línea 7: INTEGER -> 1
+Línea 7: COMMA -> ,
+Línea 7: INTEGER -> 2
+Línea 7: COMMA -> ,
+Línea 7: INTEGER -> 3
+Línea 7: RBRACKET -> ]
+Línea 7: SEMICOLON -> ;
+Línea 8: LBRACE -> {
+Línea 8: STRING -> "clave"
+Línea 8: COLON -> :
+Línea 8: STRING -> "valor"
+Línea 8: RBRACE -> }
+Línea 9: LPAREN -> (
+Línea 9: BOOLEAN -> False
+Línea 9: RPAREN -> )

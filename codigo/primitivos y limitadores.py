@@ -66,18 +66,25 @@ def t_error(t):
     print(f"[ERROR] Carácter ilegal: '{t.value[0]}' en línea {t.lexer.lineno}")
     t.lexer.skip(1)
 
-def test_lexer(input_text, usuario_git="default"):
+def test_lexer_from_file(filepath, usuario_git="default"):
+    # Crear lexer
     lexer = lex.lex()
+
+    # Leer archivo .swift
+    try:
+        with open(filepath, "r", encoding="utf-8") as f:
+            input_text = f.read()
+    except FileNotFoundError:
+        print(f"[ERROR] No se encontró el archivo: {filepath}")
+        return
+
     lexer.input(input_text)
 
-    if not os.path.exists("logs"):
-        os.makedirs("logs")
-
-    fecha_hora = datetime.datetime.now().strftime("%d-%m-%Y-%Hh%M")
-    log_name =  "Proyecto-LP-Analizador\logs\lexico-" + usuario_git + "-" + fecha_hora + ".txt"
+    fecha_hora = datetime.datetime.now().strftime("%d-%m-%Y-%Hh%M")#fecha y hora
+    log_name = "Proyecto-LP-Analizador\logs\lexico-" + usuario_git + "-" + fecha_hora + ".txt"
 
     with open(log_name, "w", encoding="utf-8") as log:
-        log.write(f"LOG DE TOKENS ({fecha_hora})\n")
+        log.write(f"===== LOG DE TOKENS ({fecha_hora}) =====\n")
         while True:
             tok = lexer.token()
             if not tok:
@@ -86,18 +93,9 @@ def test_lexer(input_text, usuario_git="default"):
 
     print(f"\nAnálisis léxico completado. Log guardado en: {log_name}")
 
+
 #ejemplo tipos primitivos y limitadores
 if __name__ == "__main__":
+    ruta_swift = r"Proyecto-LP-Analizador\algoritmos\algoritmosprimitivos.swift"
+    test_lexer_from_file(ruta_swift, usuario_git="AymanElS4")
     
-    codigo_swift = '''
-    42
-    3.1415
-    true
-    false
-    "Hola Swift"
-    'A'
-    [1, 2, 3];
-    { "clave": "valor" }
-    (false)
-    '''
-    test_lexer(codigo_swift, usuario_git="AymanElS4")
