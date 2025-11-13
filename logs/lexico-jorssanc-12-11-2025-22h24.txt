@@ -1,0 +1,25 @@
+Línea 2: Tipo=PALABRA_RESERVADA, Valor=import
+Línea 2: Tipo=ID, Valor=Foundation
+Línea 3: Tipo=PALABRA_RESERVADA, Valor=while
+Línea 3: Tipo=PALABRA_RESERVADA, Valor=let
+Línea 3: Tipo=PALABRA_RESERVADA, Valor=var
+Línea 3: Tipo=PALABRA_RESERVADA, Valor=case
+Línea 3: Tipo=PALABRA_RESERVADA, Valor=break
+Línea 4: Tipo=PALABRA_RESERVADA, Valor=func
+Línea 4: Tipo=ID, Valor=saludar
+Línea 4: Tipo=ID, Valor=nombre
+Línea 4: Tipo=ID, Valor=String
+Línea 5: Tipo=ID, Valor=print
+Línea 5: Tipo=STRING, Valor="Hola \(nombre)"
+Línea 5: Tipo=COMMENT_SINGLE, Valor=// imprimir mensaje
+Línea 7: Tipo=COMMENT_MULTI, Valor=/*
+hola, este es un comentario multilinea
+*/
+Línea 8: Tipo=COMMENT_SINGLE, Valor=// este es un comentario de una sola linea
+Línea 9: Tipo=PALABRA_RESERVADA, Valor=let
+Línea 9: Tipo=ID, Valor=mensaje
+Línea 9: Tipo=STRING, Valor="Mundo"
+Línea 10: Tipo=ID, Valor=saludar
+Línea 10: Tipo=ID, Valor=nombre
+Línea 10: Tipo=ID, Valor=mensaje
+Línea 13: Tipo=COMMENT_SINGLE, Valor=// acá hay otro comentario
