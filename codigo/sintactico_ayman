@@ -1,0 +1,6 @@
+import ply.yacc as yacc
+from primitivos_y_limitadores import tokens
+from palabras_reservadas_comentarios import reserved
+
+def p_letdeclarative(p):
+    'letdeclarative : LET VARIABLE IGUAL valor SEMICOLON'
