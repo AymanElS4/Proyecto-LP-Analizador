@@ -1,0 +1,176 @@
+--- RESULTADOS DEL ANÁLISIS (algoritmos/algoritmo_identificadores_y_operadores.swift) ---
+
+✔ TOKENS Y ELEMENTOS RECONOCIDOS:
+  Línea 1: IDENTIFICADOR -> import
+  Línea 1: IDENTIFICADOR -> Foundation
+  Línea 1: línea ignorada ('import')
+  Línea 4: VAR -> var
+  Línea 1: línea ignorada ('Foundation')
+  Línea 4: IDENTIFICADOR -> numero
+  Línea 4: IDENTIFICADOR -> Int
+  Línea 4: Entero -> 10
+  Línea 5: VAR -> var
+  Línea 5: IDENTIFICADOR -> mensaje
+  Línea 5: IDENTIFICADOR -> String
+  Línea 5: Cadena -> "Hola, Ariel"
+  Línea 6: VAR -> var
+  Línea 6: IDENTIFICADOR -> _resultado
+  Línea 6: IDENTIFICADOR -> Double
+  Línea 6: Decimal -> 3.14
+  Línea 7: IDENTIFICADOR -> let
+  Línea 7: IDENTIFICADOR -> saludo
+  Línea 7: Cadena -> "Â¡Buen dÃ­a!"
+  Línea 9: IDENTIFICADOR -> print
+  Línea 9: IDENTIFICADOR -> mensaje
+  Línea 9: IDENTIFICADOR -> numero
+  Línea 9: IDENTIFICADOR -> _resultado
+  Línea 9: IDENTIFICADOR -> saludo
+  Línea 12: IDENTIFICADOR -> let
+  Línea 12: IDENTIFICADOR -> a
+  Línea 12: línea ignorada ('let')
+  Línea 12: Entero -> 7
+  Línea 13: IDENTIFICADOR -> let
+  Línea 13: IDENTIFICADOR -> b
+  Línea 13: Entero -> 3
+  Línea 14: IDENTIFICADOR -> let
+  Línea 14: IDENTIFICADOR -> suma
+  Línea 14: IDENTIFICADOR -> a
+  Línea 14: IDENTIFICADOR -> b
+  Línea 15: IDENTIFICADOR -> let
+  Línea 15: IDENTIFICADOR -> resta
+  Línea 15: IDENTIFICADOR -> a
+  Línea 15: IDENTIFICADOR -> b
+  Línea 16: IDENTIFICADOR -> let
+  Línea 16: IDENTIFICADOR -> mult
+  Línea 16: IDENTIFICADOR -> a
+  Línea 16: IDENTIFICADOR -> b
+  Línea 17: IDENTIFICADOR -> let
+  Línea 17: IDENTIFICADOR -> div
+  Línea 17: IDENTIFICADOR -> a
+  Línea 17: IDENTIFICADOR -> b
+  Línea 18: IDENTIFICADOR -> let
+  Línea 18: IDENTIFICADOR -> resto
+  Línea 18: IDENTIFICADOR -> a
+  Línea 18: IDENTIFICADOR -> b
+  Línea 19: IDENTIFICADOR -> print
+  Línea 19: Cadena -> "suma=\(suma) resta=\(resta) mult=\(mult) div=\(div) resto=\(resto)"
+  Línea 22: IDENTIFICADOR -> let
+  Línea 22: IDENTIFICADOR -> esMayor
+  Línea 22: línea ignorada ('let')
+  Línea 22: IDENTIFICADOR -> a
+  Línea 22: IDENTIFICADOR -> b
+  Línea 23: IDENTIFICADOR -> let
+  Línea 23: IDENTIFICADOR -> esIgual
+  Línea 23: IDENTIFICADOR -> a
+  Línea 23: IDENTIFICADOR -> b
+  Línea 24: IDENTIFICADOR -> let
+  Línea 24: IDENTIFICADOR -> condicion
+  Línea 24: IDENTIFICADOR -> a
+  Línea 24: Entero -> 0
+  Operador '>' reconocido entre expresiones en línea 24
+  Línea 24: IDENTIFICADOR -> b
+  Línea 24: Entero -> 0
+  Operador '>' reconocido entre expresiones en línea 24
+  Línea 25: IDENTIFICADOR -> let
+  Línea 25: IDENTIFICADOR -> condicion2
+  Línea 25: línea ignorada ('let')
+  Línea 25: IDENTIFICADOR -> a
+  Línea 25: Entero -> 0
+  Operador '<' reconocido entre expresiones en línea 25
+  Línea 26: IDENTIFICADOR -> print
+  Línea 26: Cadena -> "esMayor=\(esMayor) esIgual=\(esIgual) condicion=\(condicion) condicion2=\(condicion2)"
+  Línea 29: FUNC -> func
+  Línea 29: IDENTIFICADOR -> incrementar
+  Línea 29: IDENTIFICADOR -> _
+  Línea 29: IDENTIFICADOR -> valor
+  Línea 29: línea ignorada ('_')
+  Línea 29: IDENTIFICADOR -> Int
+  Línea 29: IDENTIFICADOR -> en
+  Línea 29: IDENTIFICADOR -> inc
+  Línea 29: línea ignorada ('en')
+  Línea 29: IDENTIFICADOR -> Int
+  Línea 29: Entero -> 1
+  Línea 29: IDENTIFICADOR -> Int
+  Línea 30: RETURN -> return
+  Línea 30: IDENTIFICADOR -> valor
+  Línea 30: IDENTIFICADOR -> inc
+  Línea 32: IDENTIFICADOR -> print
+  Línea 32: Cadena -> "incrementar(5) ="
+  Línea 32: IDENTIFICADOR -> incrementar
+  Línea 32: Entero -> 5
+  Línea 33: IDENTIFICADOR -> print
+  Línea 33: Cadena -> "incrementar(5, en: 3) ="
+  Línea 33: IDENTIFICADOR -> incrementar
+  Línea 33: Entero -> 5
+  Línea 33: IDENTIFICADOR -> en
+  Línea 33: Entero -> 3
+  Línea 36: IDENTIFICADOR -> let
+  Línea 36: IDENTIFICADOR -> tupla
+  Línea 36: línea ignorada ('let')
+  Línea 36: IDENTIFICADOR -> Int
+  Línea 36: IDENTIFICADOR -> String
+  Línea 36: IDENTIFICADOR -> Double
+  Línea 36: Entero -> 42
+  Línea 36: Cadena -> "respuesta"
+  Línea 36: Decimal -> 2.718
+  Línea 37: IDENTIFICADOR -> let
+  Línea 37: IDENTIFICADOR -> miEntero
+  Línea 37: IDENTIFICADOR -> miString
+  Línea 37: IDENTIFICADOR -> miDouble
+  Línea 37: IDENTIFICADOR -> tupla
+  Línea 38: IDENTIFICADOR -> print
+  Línea 37: línea ignorada ('tupla')
+  Línea 38: Cadena -> "tupla:"
+  Línea 38: IDENTIFICADOR -> miEntero
+  Línea 38: IDENTIFICADOR -> miString
+  Línea 38: IDENTIFICADOR -> miDouble
+  Línea 41: VAR -> var
+  Línea 41: IDENTIFICADOR -> contador
+  Línea 41: Entero -> 3
+  Línea 42: VAR -> var
+  Línea 42: IDENTIFICADOR -> acumulador
+  Línea 42: Entero -> 0
+  Línea 43: WHILE -> while
+  Línea 43: IDENTIFICADOR -> contador
+  Línea 43: Entero -> 0
+  Línea 44: IDENTIFICADOR -> acumulador
+  Línea 44: IDENTIFICADOR -> contador
+  Línea 45: IDENTIFICADOR -> contador
+  Línea 44: línea ignorada ('contador')
+  Línea 45: Entero -> 1
+  Línea 47: IDENTIFICADOR -> print
+  Línea 47: Cadena -> "acumulador ="
+  Línea 47: IDENTIFICADOR -> acumulador
+  Línea 50: IDENTIFICADOR -> print
+  Línea 50: Cadena -> "Prueba completada correctamente â identificadores y operadores OK"
+
+⚠ ERRORES LÉXICOS:
+
+⚠ ERRORES SINTÁCTICOS:
+  Error de sintaxis en línea 5: token inesperado 'var'
+  Error de sintaxis en línea 6: token inesperado 'var'
+  Error de sintaxis en línea 7: token inesperado 'let'
+  Error de sintaxis en línea 9: token inesperado 'print'
+  Error de sintaxis en línea 13: token inesperado 'let'
+  Error de sintaxis en línea 14: token inesperado 'let'
+  Error de sintaxis en línea 15: token inesperado 'let'
+  Error de sintaxis en línea 16: token inesperado 'let'
+  Error de sintaxis en línea 17: token inesperado 'let'
+  Error de sintaxis en línea 18: token inesperado 'let'
+  Error de sintaxis en línea 19: token inesperado 'print'
+  Error de sintaxis en línea 23: token inesperado 'let'
+  Error de sintaxis en línea 24: token inesperado 'let'
+  Error de sintaxis en línea 24: token inesperado ')'
+  Error de sintaxis en línea 24: token inesperado ')'
+  Error de sintaxis en línea 25: token inesperado '('
+  Error de sintaxis en línea 25: token inesperado ')'
+  Error de sintaxis en línea 29: token inesperado ')'
+  Error de sintaxis en línea 31: token inesperado '}'
+  Error de sintaxis en línea 42: token inesperado 'var'
+  Error de sintaxis en línea 43: token inesperado 'while'
+  Error de sintaxis en línea 43: token inesperado '{'
+  Error de sintaxis en línea 45: token inesperado '='
+
+⚠ ERRORES SEMÁNTICOS:
+
+✔ RECONOCIMIENTOS CORRECTOS SEMÁNTICOS:
