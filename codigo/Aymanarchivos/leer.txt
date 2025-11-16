@@ -1,2 +1,14 @@
 1.Para realizar solo el análisis léxico, usar primitivos_y_limitadores.py y para la creación del log correspondiente. 
 2.Para el análisis sintáctico, se recomienda usar sintactico_ayman.py y para la creación del log
+Responsabilidades (analizador léxico):
+Tipor primitivos de datos
+delimitadores
+Responsabilidades (analizador sintáctico):
+impresión
+input con teclas
+for loops
+funciones lambdas
+diccionarios
+declaraciones de variables let  
+expresiones aritméticas con uno o más operadores
+condiciones con uno o más conectores lógicos
