@@ -129,9 +129,9 @@ def t_error(t):
     print(f"[ERROR] Caracter ilegal: '{t.value[0]}' en linea {t.lexer.lineno}")
     t.lexer.skip(1)
 
+lexer = lex.lex()
 def test_lexer_from_file(filepath, usuario_git="default"):
-    # Crear lexer
-    lexer = lex.lex()
+    
 
     # Leer archivo .swift
     try:
@@ -147,7 +147,7 @@ def test_lexer_from_file(filepath, usuario_git="default"):
     log_name = "Proyecto-LP-Analizador\logs\lexico-" + usuario_git + "-" + fecha_hora + ".txt"
 
     with open(log_name, "w", encoding="utf-8") as log:
-        log.write(f"===== LOG DE TOKENS ({fecha_hora}) =====\n")
+        log.write(f"LOG DE TOKENS ({fecha_hora}) \n")
         while True:
             tok = lexer.token()
             if not tok:

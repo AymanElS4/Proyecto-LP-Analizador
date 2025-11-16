@@ -2,6 +2,7 @@ import ply.yacc as yacc
 from primitivos_y_limitadores import tokens
 import ply.lex as lex
 import datetime
+import os
 
 precedence = (
     ('left', 'OR'),
@@ -184,6 +185,48 @@ def p_error(p):
 
 parser = yacc.yacc()
 
+def ejecutar_y_generalog(codigo_fuente, parser, usuario_git="AymanElS4"):
+    
+    global parse_errors
+    parse_errors.clear()   # limpiar errores previos
+
+    try:
+        parser.parse(codigo_fuente)
+    except Exception as e:
+        parse_errors.append(f"[SYN ERROR] Excepción durante el parseo: {str(e)}")
+
+    carpeta_logs = os.path.join("Proyecto-LP-Analizador", "logs")
+   
+    # nombre del archivo de log
+    fecha_hora = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+    nombre_archivo = f"sintactico-{usuario_git}-{fecha_hora}.txt"
+    ruta_log = os.path.join(carpeta_logs, nombre_archivo)
+    #contenido
+    with open(ruta_log, "w", encoding="utf-8") as f:
+        f.write("Log de análisis sintáctico\n")
+        f.write(f"Usuario Git: {usuario_git}\n")
+        f.write(f"Fecha/Hora: {fecha_hora}\n")
+        f.write("=------------------=\n\n")
+
+        if parse_errors:
+            f.write("Errores sintácticos encontrados:\n")
+            f.write("---------------------------------------\n")
+            for err in parse_errors:
+                f.write(err + "\n")
+        else:
+            f.write("No se encontraron errores sintácticos.\n")
+
+    print(f"[OK] Log generado en: {ruta_log}")
+
+    return ruta_log
+
+with open(r"Proyecto-LP-Analizador\algoritmos\algoritmosprimitivos.swift", "r", encoding="utf-8") as f:
+    swiftcod = f.read()
+ejecutar_y_generalog(
+    codigo_fuente=swiftcod,
+    parser=parser,
+    usuario_git="AymanElS4"
+)
 
 
 
