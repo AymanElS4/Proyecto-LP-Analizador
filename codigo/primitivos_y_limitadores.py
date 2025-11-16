@@ -6,6 +6,7 @@ import os
 tokens = [
     'INTEGER',
     'FLOAT',
+    'DOUBLE',
     'BOOLEAN',
     'STRING',
     'CHARACTER',
@@ -26,6 +27,11 @@ t_COMMA     = r','
 t_SEMICOLON = r';'
 t_COLON     = r':'
 #Tipos primitivos
+def t_DOUBLE(t):
+    r'\d+(\.\d+)?[eE][+-]?\d+'
+    t.value = float(t.value)
+    return t
+
 def t_FLOAT(t):
     r'\d+\.\d+'
     t.value = float(t.value)
