@@ -22,7 +22,8 @@ tokens_list = [
     'ID', 'NUMBER', 'STRING', 'LPAREN', 'RPAREN', 'LBRACE', 'RBRACE',
     'LBRACKET', 'RBRACKET', 'COMMA', 'SEMICOLON', 'COLON', 'ARROW', 'ASSIGN',
     'EQUAL', 'NOT_EQUAL', 'LT', 'GT', 'LTE', 'GTE', 'PLUS', 'MINUS',
-    'MULTIPLY', 'DIVIDE', 'AND', 'OR', 'NOT', 'DOT', 'QUESTION'
+    'MULTIPLY', 'DIVIDE', 'AND', 'OR', 'NOT', 'DOT', 'QUESTION', 'MODULO',
+    'PLUSASSIGN', 'MINUSASSIGN', 'MULTASSIGN', 'DIVASSIGN', 'RANGE', 'CLOSEDRANGE'
 ]
 
 tokens = tokens_list + list(reserved.values())
@@ -52,6 +53,13 @@ t_PLUS = r'\+'
 t_MINUS = r'-'
 t_MULTIPLY = r'\*'
 t_DIVIDE = r'/'
+t_MODULO = r'%'
+t_CLOSEDRANGE = r'\.\.\.'
+t_RANGE = r'\.\.<'
+t_PLUSASSIGN = r'\+='
+t_MINUSASSIGN = r'-='
+t_MULTASSIGN = r'\*='
+t_DIVASSIGN = r'/='
 t_AND = r'&&'
 t_OR = r'\|\|'
 t_NOT = r'!'
@@ -211,11 +219,17 @@ def p_parameter(p):
 def p_type_annotation(p):
     """type_annotation : ID
                       | ID QUESTION
-                      | ID DOT ID"""
+                      | ID DOT ID
+                      | LBRACKET type_annotation RBRACKET
+                      | LBRACKET type_annotation COLON type_annotation RBRACKET"""
     if len(p) == 2:
         p[0] = p[1]
     elif len(p) == 3:
         p[0] = (p[1], 'optional')
+    elif len(p) == 4 and p[2] == '[':
+        p[0] = ('array_type', p[2])
+    elif len(p) == 6:
+        p[0] = ('dict_type', p[2], p[4])
     else:
         p[0] = (p[1], p[3])
 
@@ -249,8 +263,12 @@ def p_expression_statement(p):
     p[0] = ('expr_stmt', p[1])
 
 def p_expression_assignment(p):
-    """expression : ID ASSIGN expression"""
-    p[0] = ('assign', p[1], p[3])
+    """expression : ID ASSIGN expression
+                  | ID PLUSASSIGN expression
+                  | ID MINUSASSIGN expression
+                  | ID MULTASSIGN expression
+                  | ID DIVASSIGN expression"""
+    p[0] = ('assign', p[1], p[2], p[3])
 
 def p_expression_property_assignment(p):
     """expression : property_access ASSIGN expression"""
@@ -265,6 +283,7 @@ def p_expression_binop(p):
                   | expression MINUS expression
                   | expression MULTIPLY expression
                   | expression DIVIDE expression
+                  | expression MODULO expression
                   | expression EQUAL expression
                   | expression NOT_EQUAL expression
                   | expression LT expression
@@ -279,6 +298,15 @@ def p_expression_unary(p):
     """expression : NOT expression
                   | MINUS expression"""
     p[0] = ('unary', p[1], p[2])
+
+def p_expression_ternary(p):
+    """expression : expression QUESTION expression COLON expression"""
+    p[0] = ('ternary', p[1], p[3], p[5])
+
+def p_expression_range(p):
+    """expression : expression RANGE expression
+                  | expression CLOSEDRANGE expression"""
+    p[0] = ('range', p[2], p[1], p[3])
 
 def p_expression_function_call(p):
     """expression : ID LPAREN argument_list RPAREN
@@ -309,8 +337,20 @@ def p_expression_property_access(p):
     p[0] = p[1]
 
 def p_expression_paren(p):
-    """expression : LPAREN expression RPAREN"""
-    p[0] = p[2]
+    """expression : LPAREN expression RPAREN
+                  | LPAREN tuple_elements RPAREN"""
+    if isinstance(p[2], tuple) and p[2][0] == 'tuple':
+        p[0] = p[2]
+    else:
+        p[0] = p[2]
+
+def p_tuple_elements(p):
+    """tuple_elements : expression COMMA expression
+                     | tuple_elements COMMA expression"""
+    if p[1][0] == 'tuple':
+        p[0] = ('tuple', p[1][1] + [p[3]])
+    else:
+        p[0] = ('tuple', [p[1], p[3]])
 
 def p_expression_primary(p):
     """expression : ID
