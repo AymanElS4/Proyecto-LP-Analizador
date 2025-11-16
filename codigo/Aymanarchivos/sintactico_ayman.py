@@ -2,8 +2,7 @@ import ply.yacc as yacc
 from primitivos_y_limitadores import tokens
 import ply.lex as lex
 import datetime
-import os
-import sys
+
 precedence = (
     ('left', 'OR'),
     ('left', 'AND'),
