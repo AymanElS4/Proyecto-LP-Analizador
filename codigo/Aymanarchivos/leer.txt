@@ -1,0 +1,4 @@
+1.Para realizar solo el análisis léxico, usar primitivos_y_limitadores.py y para la creación del log correspondiente. 
+2.Para el análisis sintáctico, se recomienda usar sintactico_ayman.py para el analisis y posteriormente 
+parser_log.py para transcribirlo a un log
+3. Editar la función según la ruta relativa del parser.out

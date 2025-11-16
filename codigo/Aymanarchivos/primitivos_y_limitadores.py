@@ -13,7 +13,16 @@ tokens = [
     'LPAREN', 'RPAREN',
     'LBRACE', 'RBRACE',
     'LBRACKET', 'RBRACKET',
-    'COMMA', 'SEMICOLON', 'COLON'
+    'COMMA', 'SEMICOLON', 'COLON',
+    'LET',
+    'ID',
+    'ASSIGN',
+    'FOR',
+    'IN',
+    'LAMBDA_IN',
+    'PLUS','MINUS','TIMES','DIVIDE',
+    'EQ', 'NE', 'LT', 'GT', 'LE', 'GE',
+    'AND','OR','NOT'
 ]
 
 #Expresiones regulares en tokens
@@ -26,7 +35,55 @@ t_RBRACKET  = r'\]'
 t_COMMA     = r','
 t_SEMICOLON = r';'
 t_COLON     = r':'
-#Tipos primitivos
+#para el analisis sintactico
+t_ASSIGN = r'='
+t_LAMBDA_IN = r'->'
+t_ID = r'[A-Za-z_][A-Za-z0-9_]*'
+t_PLUS  = r'\+'
+t_MINUS = r'-'
+t_TIMES = r'\*'
+t_DIVIDE = r'/'
+t_EQ = r'=='
+t_NE = r'!='
+t_LE = r'<='
+t_GE = r'>='
+t_LT = r'<'
+t_GT = r'>'
+t_AND = r'&&'
+t_OR = r'\|\|'
+t_NOT = r'!'
+#para analisis sintactico
+
+def t_LET(t):
+    r'let'
+    t.type = 'LET'
+    return t
+
+def t_FOR(t):
+    r'for'
+    t.type = 'FOR'
+    return t
+
+def t_IN(t):
+    r'in'
+    t.type = 'IN'
+    return t
+def t_PRINT(t):
+    r'print'
+    t.type = 'ID'
+    t.value = 'print'
+    return t
+
+def t_INPUT(t):
+    r'input'
+    t.type = 'ID'
+    t.value = 'input'
+    return t
+
+
+
+
+#Tipos primitivos-lexico
 def t_DOUBLE(t):
     r'\d+(\.\d+)?[eE][+-]?\d+'
     t.value = float(t.value)
