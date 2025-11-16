@@ -2,8 +2,7 @@ import ply.yacc as yacc
 from primitivos_y_limitadores import tokens
 import ply.lex as lex
 import datetime
-import os
-import sys
+
 precedence = (
     ('left', 'OR'),
     ('left', 'AND'),
@@ -186,32 +185,6 @@ def p_error(p):
 parser = yacc.yacc()
 
 
-def test_parser_from_file(filepath, usuario_git="default"):
-
-    lexer = lex.lex()
-
-    try:
-        with open(filepath, "r", encoding="utf-8") as f:
-            input_text = f.read()
-    except FileNotFoundError:
-        print(f"[ERROR] No se encontró el archivo: {filepath}")
-        return
-
-    fecha_hora = datetime.datetime.now().strftime("%d-%m-%Y-%Hh%M")
-    log_name = f"Proyecto-LP-Analizador/logs/sintactico-{usuario_git}-{fecha_hora}.txt"
-
-    with open(log_name, "w", encoding="utf-8") as log:
-        log.write(f"===== LOG DE PARSER ({fecha_hora}) =====\n")
-
-        try:
-            result = parser.parse(input_text, lexer=lexer)
-            log.write("Parser completado, no hay errores\n")
-            log.write(f"Árbol sintáctico:\n{result}\n")
-        except Exception as e:
-            log.write("Error durante parseo:\n")
-            log.write(str(e) + "\n")
-
-    print(f"\nAnálisis sintáctico completado. Log guardado en: {log_name}")
 
 
 

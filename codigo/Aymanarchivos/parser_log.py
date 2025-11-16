@@ -3,7 +3,7 @@ import datetime
 
 #ya que no podia cambiar la ubicacion del parser.out, se hizo esta funcion para crear el log correspondiente
 
-#para leer el parser.out y de ah[i generar un log]
+#para leer el parser.out y de ahí generar un log con los conflictos, reglas y estados
 def generar_log_desde_parser_out(ruta_parser_out="parser.out", usuario_git="AymanElS4"):
     
     if not os.path.exists(ruta_parser_out):
@@ -56,7 +56,7 @@ def generar_log_desde_parser_out(ruta_parser_out="parser.out", usuario_git="Ayma
         if modo_estados:
             estados.append(linea.rstrip())
 
-    # ---- Escribir log ----
+    #Escribir log
     with open(archivo_log, "w", encoding="utf-8") as log:
         log.write("="*60 + "\n")
         log.write(f"   RESUMEN DE PARSER.OUT – Usuario: {usuario_git}\n")
