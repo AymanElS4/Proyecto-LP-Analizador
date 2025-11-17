@@ -4,6 +4,9 @@ import ply.lex as lex
 import datetime
 import os
 
+tabla_simbolos = {
+    "variables": {}
+}
 precedence = (
     ('left', 'OR'),
     ('left', 'AND'),
@@ -16,6 +19,7 @@ precedence = (
 )
 # lista para recolectar errores sintácticos durante el parseo
 parse_errors = []
+semantic_errors = []
 
 def p_program(p):
     """program : statements"""
@@ -43,7 +47,18 @@ def p_statement(p):
 # declaración let: let id = expression [;]
 def p_decl_stmt(p):
     """decl_stmt : LET ID ASSIGN expression optional_semicolon"""
-    p[0] = ('let_decl', p[2], p[4])
+    nombre = p[2]
+    tipo_expr = p[4][1]  # el tipo viene como ('expr', tipo)
+
+    # ---- SEMÁNTICA ----
+    if nombre in tabla_simbolos["variables"]:
+        semantic_errors.append(
+            f"[SEM ERROR] La variable '{nombre}' ya está declarada"
+        )
+    else:
+        tabla_simbolos["variables"][nombre] = tipo_expr
+
+    p[0] = ('let_decl', nombre, p[4])
 
 def p_optional_semicolon(p):
     """optional_semicolon : SEMICOLON
@@ -139,15 +154,25 @@ def p_expression_binop(p):
                   | expression GE expression
                   | expression AND expression
                   | expression OR expression"""
-    p[0] = ('binop', p[2], p[1], p[3])
+    tipo1 = p[1][1]
+    tipo2 = p[3][1]
+
+    #tipos supersimples
+    if tipo1 != tipo2:
+        semantic_errors.append(
+            f"[SEM ERROR] Tipos incompatibles: {tipo1} {p[2]} {tipo2}"
+        )
+
+    p[0] = ('binop', p[2], p[1], p[3], tipo1)
+
 
 def p_expression_not(p):
     "expression : NOT expression"
-    p[0] = ('not', p[2])
+    p[0] = ('not', p[2],"Bool" )
 
 def p_expression_uminus(p):
     "expression : MINUS expression %prec UMINUS"
-    p[0] = ('uminus', p[2])
+    p[0] = ('uminus', p[2], p[2][1])
 
 def p_expression_group(p):
     "expression : LPAREN expression RPAREN"
@@ -160,11 +185,31 @@ def p_expression_literal(p):
                   | BOOLEAN
                   | STRING
                   | CHARACTER"""
-    p[0] = ('literal', p[1])
+    tipo_map = {
+        "INTEGER": "Int",
+        "FLOAT": "Float",
+        "DOUBLE": "Double",
+        "BOOLEAN": "Bool",
+        "STRING": "String",
+        "CHARACTER": "Character"
+    }
+
+    tipo = tipo_map[p.slice[1].type]
+    p[0] = ('literal', tipo, tipo)
 
 def p_expression_id(p):
     "expression : ID"
-    p[0] = ('id', p[1])
+    nombre = p[1]
+
+    if nombre not in tabla_simbolos["variables"]:
+        semantic_errors.append(
+            f"[SEM ERROR] Variable '{nombre}' usada sin declarar"
+        )
+        p[0] = ('id', nombre, "Unknown")
+    else:
+        p[0] = ('id', nombre, tabla_simbolos["variables"][nombre])
+
+
 
 
 
@@ -186,9 +231,10 @@ def p_error(p):
 parser = yacc.yacc()
 
 def ejecutar_y_generalog(codigo_fuente, parser, usuario_git="AymanElS4"):
-    
-    global parse_errors
-    parse_errors.clear()   # limpiar errores previos
+    global parse_errors, semantic_errors
+
+    parse_errors.clear()
+    semantic_errors.clear()
 
     try:
         parser.parse(codigo_fuente)
@@ -196,38 +242,42 @@ def ejecutar_y_generalog(codigo_fuente, parser, usuario_git="AymanElS4"):
         parse_errors.append(f"[SYN ERROR] Excepción durante el parseo: {str(e)}")
 
     carpeta_logs = os.path.join("Proyecto-LP-Analizador", "logs")
-   
-    # nombre del archivo de log
     fecha_hora = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
     nombre_archivo = f"sintactico-{usuario_git}-{fecha_hora}.txt"
     ruta_log = os.path.join(carpeta_logs, nombre_archivo)
-    #contenido
+
     with open(ruta_log, "w", encoding="utf-8") as f:
-        f.write("Log de análisis sintáctico\n")
+        f.write("Log de análisis sintáctico + semántico\n")
         f.write(f"Usuario Git: {usuario_git}\n")
         f.write(f"Fecha/Hora: {fecha_hora}\n")
         f.write("=------------------=\n\n")
 
         if parse_errors:
-            f.write("Errores sintácticos encontrados:\n")
-            f.write("---------------------------------------\n")
+            f.write("Errores sintácticos:\n")
             for err in parse_errors:
                 f.write(err + "\n")
-        else:
-            f.write("No se encontraron errores sintácticos.\n")
+            f.write("\n")
+
+        if semantic_errors:
+            f.write("Errores semánticos:\n")
+            for err in semantic_errors:
+                f.write(err + "\n")
+            f.write("\n")
+
+        if not parse_errors and not semantic_errors:
+            f.write("No se encontraron errores.\n")
 
     print(f"[OK] Log generado en: {ruta_log}")
-
     return ruta_log
 
 with open(r"Proyecto-LP-Analizador\algoritmos\algoritmosprimitivos.swift", "r", encoding="utf-8") as f:
     swiftcod = f.read()
+
 ejecutar_y_generalog(
     codigo_fuente=swiftcod,
     parser=parser,
     usuario_git="AymanElS4"
 )
-
 
 
 
