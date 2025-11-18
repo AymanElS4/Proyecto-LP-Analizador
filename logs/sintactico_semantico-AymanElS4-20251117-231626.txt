@@ -1,0 +1,154 @@
+Log de análisis sintáctico + semántico
+Usuario Git: AymanElS4
+Fecha/Hora: 20251117-231626
+=------------------=
+
+Errores sintácticos:
+[SYN ERROR] Token inesperado ':' en línea 1
+[SYN ERROR] Token inesperado '=' en línea 1
+[SYN ERROR] Token inesperado '10' en línea 1
+[SYN ERROR] Token inesperado 'let' en línea 2
+[SYN ERROR] Token inesperado 'y' en línea 2
+[SYN ERROR] Token inesperado ':' en línea 2
+[SYN ERROR] Token inesperado 'Double' en línea 2
+[SYN ERROR] Token inesperado '=' en línea 2
+[SYN ERROR] Token inesperado '3.14' en línea 2
+[SYN ERROR] Token inesperado 'let' en línea 3
+[SYN ERROR] Token inesperado 'z' en línea 3
+[SYN ERROR] Token inesperado ':' en línea 3
+[SYN ERROR] Token inesperado 'Bool' en línea 3
+[SYN ERROR] Token inesperado '=' en línea 3
+[SYN ERROR] Token inesperado 'True' en línea 3
+[SYN ERROR] Token inesperado 'let' en línea 4
+[SYN ERROR] Token inesperado 'let' en línea 4
+[SYN ERROR] Token inesperado 'ra' en línea 4
+[SYN ERROR] Token inesperado ':' en línea 4
+[SYN ERROR] Token inesperado 'Character' en línea 4
+[SYN ERROR] Token inesperado '=' en línea 4
+[SYN ERROR] Token inesperado 'a' en línea 4
+[SYN ERROR] Token inesperado 'let' en línea 5
+[SYN ERROR] Token inesperado 'mensaje' en línea 5
+[SYN ERROR] Token inesperado ':' en línea 5
+[SYN ERROR] Token inesperado 'String' en línea 5
+[SYN ERROR] Token inesperado '=' en línea 5
+[SYN ERROR] Token inesperado '"Hola Swift"' en línea 5
+[SYN ERROR] Token inesperado 'let' en línea 6
+[SYN ERROR] Token inesperado 'resultado' en línea 6
+[SYN ERROR] Token inesperado '=' en línea 6
+[SYN ERROR] Token inesperado 'x' en línea 6
+[SYN ERROR] Token inesperado '+' en línea 6
+[SYN ERROR] Token inesperado '5' en línea 6
+[SYN ERROR] Token inesperado '*' en línea 6
+[SYN ERROR] Token inesperado ':' en línea 8
+[SYN ERROR] Token inesperado '[' en línea 8
+[SYN ERROR] Token inesperado ':' en línea 8
+[SYN ERROR] Token inesperado 'Int' en línea 8
+[SYN ERROR] Token inesperado ']' en línea 8
+[SYN ERROR] Token inesperado '=' en línea 8
+[SYN ERROR] Token inesperado '[' en línea 8
+[SYN ERROR] Token inesperado ':' en línea 8
+[SYN ERROR] Token inesperado ']' en línea 8
+[SYN ERROR] Token inesperado 'let' en línea 9
+[SYN ERROR] Token inesperado 'mezclado' en línea 9
+[SYN ERROR] Token inesperado ':' en línea 9
+[SYN ERROR] Token inesperado '[' en línea 9
+[SYN ERROR] Token inesperado 'String' en línea 9
+[SYN ERROR] Token inesperado ':' en línea 9
+[SYN ERROR] Token inesperado 'Any' en línea 9
+[SYN ERROR] Token inesperado ']' en línea 9
+[SYN ERROR] Token inesperado '=' en línea 9
+[SYN ERROR] Token inesperado '[' en línea 9
+[SYN ERROR] Token inesperado '"x"' en línea 9
+[SYN ERROR] Token inesperado ':' en línea 9
+[SYN ERROR] Token inesperado '10' en línea 9
+[SYN ERROR] Token inesperado ',' en línea 9
+[SYN ERROR] Token inesperado '"y"' en línea 9
+[SYN ERROR] Token inesperado ':' en línea 9
+[SYN ERROR] Token inesperado 'True' en línea 9
+[SYN ERROR] Token inesperado ',' en línea 9
+[SYN ERROR] Token inesperado '"z"' en línea 9
+[SYN ERROR] Token inesperado ':' en línea 9
+[SYN ERROR] Token inesperado '"texto"' en línea 9
+[SYN ERROR] Token inesperado ']' en línea 9
+[SYN ERROR] Token inesperado 'for' en línea 10
+[SYN ERROR] Token inesperado 'i' en línea 10
+[SYN ERROR] Token inesperado 'in' en línea 10
+[SYN ERROR] Token inesperado '0' en línea 10
+[SYN ERROR] Token inesperado '5' en línea 10
+[SYN ERROR] Token inesperado '{' en línea 10
+[SYN ERROR] Token inesperado 'print' en línea 11
+[SYN ERROR] Token inesperado '}' en línea 12
+[SYN ERROR] Token inesperado ',' en línea 14
+[SYN ERROR] Token inesperado '"Luis"' en línea 14
+[SYN ERROR] Token inesperado ',' en línea 14
+[SYN ERROR] Token inesperado '"Carlos"' en línea 14
+[SYN ERROR] Token inesperado ']' en línea 14
+[SYN ERROR] Token inesperado '{' en línea 14
+[SYN ERROR] Token inesperado 'print' en línea 15
+[SYN ERROR] Token inesperado '(' en línea 15
+[SYN ERROR] Token inesperado '"Hola \(nombre)"' en línea 15
+[SYN ERROR] Token inesperado ')' en línea 15
+[SYN ERROR] Token inesperado '}' en línea 16
+[SYN ERROR] Token inesperado 'print' en línea 17
+[SYN ERROR] Token inesperado '(' en línea 17
+[SYN ERROR] Token inesperado '"Ingresa tu nombre: "' en línea 17
+[SYN ERROR] Token inesperado ')' en línea 17
+[SYN ERROR] Token inesperado 'let' en línea 18
+[SYN ERROR] Token inesperado 'nombre' en línea 18
+[SYN ERROR] Token inesperado '=' en línea 18
+[SYN ERROR] Token inesperado 'readLine' en línea 18
+[SYN ERROR] Token inesperado '(' en línea 18
+[SYN ERROR] Token inesperado ')' en línea 18
+[SYN ERROR] Token inesperado 'print' en línea 19
+[SYN ERROR] Token inesperado '(' en línea 19
+[SYN ERROR] Token inesperado '"Hola \(nombre!)"' en línea 19
+[SYN ERROR] Token inesperado ')' en línea 19
+[SYN ERROR] Token inesperado 'let' en línea 20
+[SYN ERROR] Token inesperado 'calc' en línea 20
+[SYN ERROR] Token inesperado '=' en línea 20
+[SYN ERROR] Token inesperado '10' en línea 20
+[SYN ERROR] Token inesperado '3' en línea 20
+[SYN ERROR] Token inesperado 'let' en línea 21
+[SYN ERROR] Token inesperado 'logicos' en línea 21
+[SYN ERROR] Token inesperado '=' en línea 21
+[SYN ERROR] Token inesperado '(' en línea 21
+[SYN ERROR] Token inesperado 'x' en línea 21
+[SYN ERROR] Token inesperado ')' en línea 21
+[SYN ERROR] Token inesperado 'if' en línea 22
+[SYN ERROR] Token inesperado 'x' en línea 22
+[SYN ERROR] Token inesperado '{' en línea 22
+[SYN ERROR] Token inesperado 'print' en línea 23
+[SYN ERROR] Token inesperado '(' en línea 23
+[SYN ERROR] Token inesperado '"Condición compleja"' en línea 23
+[SYN ERROR] Token inesperado ')' en línea 23
+[SYN ERROR] Token inesperado '}' en línea 24
+[SYN ERROR] Token inesperado 'let' en línea 25
+[SYN ERROR] Token inesperado 'sinValor' en línea 25
+[SYN ERROR] Token inesperado '=' en línea 25
+[SYN ERROR] Token inesperado 'let' en línea 26
+[SYN ERROR] Token inesperado 'faltaParentesis' en línea 26
+[SYN ERROR] Token inesperado '=' en línea 26
+[SYN ERROR] Token inesperado '(' en línea 26
+[SYN ERROR] Token inesperado '5' en línea 26
+[SYN ERROR] EOF inesperado: estructura incompleta
+
+Errores semánticos:
+[SEM ERROR] Falta tipo o valor en declaración
+[SEM ERROR] Falta tipo o valor en declaración
+[SEM ERROR] Variable 'i' usada sin declarar
+[SEM ERROR] Tipos incompatibles: String + *
+[SEM ERROR] Tipos incompatibles: + - /
+[SEM ERROR] Tipos incompatibles: - + Int
+[SEM ERROR] Variable 'y' usada sin declarar
+[SEM ERROR] Operación lógica inválida: > && <
+[SEM ERROR] Variable 'z' usada sin declarar
+[SEM ERROR] '!' solo aplica a Bool, no a ==
+[SEM ERROR] Operación lógica inválida: && || ('binop', '==', ('id', 'z', 'Unknown'), ('literal', 'Bool', 'Bool'), 'Bool')
+[SEM ERROR] Variable 'y' usada sin declarar
+[SEM ERROR] Operación lógica inválida: > && <
+[SEM ERROR] Variable 'z' usada sin declarar
+[SEM ERROR] Operación lógica inválida: && || ==
+[SEM ERROR] Tipos incompatibles: || + Int
+
+= Tabla de símbolos (scope global) =
+edades : [('kv', ('literal', 'String', 'String'), ('literal', 'Int', 'Int')), ('kv', ('literal', 'String', 'String'), ('literal', 'Int', 'Int')), ('kv', ('literal', 'String', 'String'), ('literal', 'Int', 'Int'))]
