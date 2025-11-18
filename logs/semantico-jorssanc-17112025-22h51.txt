@@ -1,0 +1,15 @@
+Linea 7: No se puede asignar tipo 'Int' a variable de tipo 'String'
+Linea 36: Variable 'suma:' ya declarada
+Linea 41: Retorno de tipo 'Int' incompatible con retorno esperado 'Boolean' en funcion 'comparacion'
+Linea 44: No se puede asignar tipo 'Array' a variable de tipo '[Int]'
+Linea 48: Retorno de tipo 'Int' incompatible con retorno esperado '[Int]' en funcion 'modificarArreglo'
+Linea 55: Retorno de tipo 'Int' incompatible con retorno esperado 'String' en funcion 'cadenas'
+Linea 58: Variable 'x:' ya declarada
+Linea 59: Variable 'y:' ya declarada
+Linea 72: No se puede asignar tipo 'String' a variable de tipo 'Int'
+Linea 78: No se puede asignar tipo 'Double' a variable de tipo 'Int'
+Linea 81: Retorno de tipo 'Int' incompatible con retorno esperado 'String' en funcion 'retornoIncorrecto'
+Linea 90: No se puede asignar tipo 'Int' a variable de tipo 'Boolean'
+Linea 96: No se puede asignar tipo 'Double' a variable de tipo 'Int'
+
+Total: 13
