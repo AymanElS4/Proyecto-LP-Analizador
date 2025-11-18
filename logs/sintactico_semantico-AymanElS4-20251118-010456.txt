@@ -1,0 +1,33 @@
+Log de análisis sintáctico + semántico
+Usuario Git: AymanElS4
+Fecha/Hora: 20251118-010456
+=------------------=
+
+Errores sintácticos:
+[SYN ERROR] Token inesperado ':' (tipo COLON) en línea 8
+[SYN ERROR] Token inesperado 'print' (tipo ID) en línea 19
+[SYN ERROR] Token inesperado 'let' (tipo LET) en línea 26
+[SYN ERROR] EOF inesperado: estructura incompleta
+
+Errores semánticos:
+[SEM ERROR] Asignación: tipo anotado 'Double' != tipo expresión 'Float'
+[SEM ERROR] Valor de diccionario incompatible: Bool != Int
+[SEM ERROR] Valor de diccionario incompatible: String != Int
+[SEM ERROR] Asignación: tipo anotado '[String:Any]' != tipo expresión 'Dictionary(String,Int)'
+[SEM ERROR] Variable 'i' usada sin declarar
+[SEM ERROR] Variable 'readLine' usada sin declarar
+[SEM ERROR] Variable 'nombre' ya declarada en este ámbito
+
+= Tabla de símbolos (scope global) =
+x : Int
+y : Double
+z : Bool
+letra : Character
+mensaje : String
+resultado : Int
+edades : Dictionary(String,Int)
+mezclado : [String:Any]
+i : Int
+nombre : Int
+calc : Int
+logicos : Bool

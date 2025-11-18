@@ -1,7 +1,6 @@
 import ply.lex as lex
 import datetime
 import os
-#tokens
 
 tokens = [
     'INTEGER',
@@ -25,7 +24,7 @@ tokens = [
     'AND','OR','NOT'
 ]
 
-#Expresiones regulares en tokens
+# Single-char tokens as regex
 t_LPAREN    = r'\('
 t_RPAREN    = r'\)'
 t_LBRACE    = r'\{'
@@ -35,43 +34,53 @@ t_RBRACKET  = r'\]'
 t_COMMA     = r','
 t_SEMICOLON = r';'
 t_COLON     = r':'
-#para el analisis sintactico
-t_ASSIGN = r'='
+t_ASSIGN    = r'='
 t_LAMBDA_IN = r'->'
-t_ID = r'[A-Za-z_][A-Za-z0-9_]*'
-t_PLUS  = r'\+'
-t_MINUS = r'-'
-t_TIMES = r'\*'
-t_DIVIDE = r'/'
-t_EQ = r'=='
-t_NE = r'!='
-t_LE = r'<='
-t_GE = r'>='
-t_LT = r'<'
-t_GT = r'>'
-t_AND = r'&&'
-t_OR = r'\|\|'
-t_NOT = r'!'
-#para analisis sintactico
+t_PLUS      = r'\+'
+t_MINUS     = r'-'
+t_TIMES     = r'\*'
+t_DIVIDE    = r'/'
+t_EQ        = r'=='
+t_NE        = r'!='
+t_LE        = r'<='
+t_GE        = r'>='
+t_LT        = r'<'
+t_GT        = r'>'
+t_AND       = r'&&'
+t_OR        = r'\|\|'
+t_NOT       = r'!'
 
-def t_LET(t):
-    r'let'
-    t.type = 'LET'
+# helpers / reserved
+reserved = {
+    'let': 'LET',
+    'for': 'FOR',
+    'in': 'IN',
+    'true': 'BOOLEAN',
+    'false': 'BOOLEAN',
+    
+}
+
+# ID rule (and reserved words)
+def t_ID(t):
+    r'[A-Za-z_][A-Za-z0-9_]*'
+    # check reserved
+    if t.value in reserved:
+        t.type = reserved[t.value]
+        if t.type == 'BOOLEAN':
+            t.value = True if t.value == 'true' else False
     return t
 
-def t_FOR(t):
-    r'for'
-    t.type = 'FOR'
-    return t
-
-def t_IN(t):
-    r'in'
-    t.type = 'IN'
-    return t
+#para la sintaxis
 def t_PRINT(t):
     r'print'
     t.type = 'ID'
     t.value = 'print'
+    return t
+
+def t_READLINE(t):
+    r'readLine'
+    t.type = 'ID'
+    t.value = 'readLine'
     return t
 
 def t_INPUT(t):
@@ -80,23 +89,29 @@ def t_INPUT(t):
     t.value = 'input'
     return t
 
-
-
-
-#Tipos primitivos-lexico
+#tipos de numeros
 def t_DOUBLE(t):
     r'\d+(\.\d+)?[eE][+-]?\d+'
-    t.value = float(t.value)
+    try:
+        t.value = float(t.value)
+    except:
+        t.value = 0.0
     return t
 
 def t_FLOAT(t):
     r'\d+\.\d+'
-    t.value = float(t.value)
+    try:
+        t.value = float(t.value)
+    except:
+        t.value = 0.0
     return t
 
 def t_INTEGER(t):
     r'\d+'
-    t.value = int(t.value)
+    try:
+        t.value = int(t.value)
+    except:
+        t.value = 0
     return t
 
 def t_BOOLEAN(t):
@@ -104,29 +119,29 @@ def t_BOOLEAN(t):
     t.value = True if t.value == 'true' else False
     return t
 
+# STRING and CHARACTER
 def t_STRING(t):
     r'\"([^\\\n]|(\\.))*?\"'
-    t.value = str(t.value)
+    t.value = t.value
     return t
 
 def t_CHARACTER(t):
     r'\'([^\\\n]|(\\.))\''
-    t.value = t.value[1:-1]  # eliminar comillas simples
+    # store inner char
+    t.value = t.value[1:-1]
     return t
 
-
-# Ignorar espacios y tabulaciones
+# ignore spaces and tabs
 t_ignore = ' \t'
 
-
-#manejo de errores
-
+# newline tracking
 def t_newline(t):
     r'\n+'
     t.lexer.lineno += len(t.value)
 
+# error handling
 def t_error(t):
-    print(f"[ERROR] Caracter ilegal: '{t.value[0]}' en linea {t.lexer.lineno}")
+    print(f"[LEX ERROR] Caracter ilegal: '{t.value[0]}' en linea {t.lexer.lineno}")
     t.lexer.skip(1)
 
 lexer = lex.lex()

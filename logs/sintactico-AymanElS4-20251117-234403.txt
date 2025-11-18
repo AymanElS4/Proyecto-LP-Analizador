@@ -1,0 +1,103 @@
+Log de análisis sintáctico + semántico
+Usuario Git: AymanElS4
+Fecha/Hora: 20251117-234403
+=------------------=
+
+Errores sintácticos:
+[SYN ERROR] Token inesperado ':' (tipo COLON) en línea 1
+[SYN ERROR] Token inesperado 'Int' (tipo ID) en línea 1
+[SYN ERROR] Token inesperado ':' (tipo COLON) en línea 2
+[SYN ERROR] Token inesperado 'Double' (tipo ID) en línea 2
+[SYN ERROR] Token inesperado ':' (tipo COLON) en línea 3
+[SYN ERROR] Token inesperado 'Bool' (tipo ID) en línea 3
+[SYN ERROR] Token inesperado ':' (tipo COLON) en línea 4
+[SYN ERROR] Token inesperado 'Character' (tipo ID) en línea 4
+[SYN ERROR] Token inesperado ':' (tipo COLON) en línea 5
+[SYN ERROR] Token inesperado 'String' (tipo ID) en línea 5
+[SYN ERROR] Token inesperado ':' (tipo COLON) en línea 8
+[SYN ERROR] Token inesperado '[' (tipo LBRACKET) en línea 8
+[SYN ERROR] Token inesperado 'String' (tipo ID) en línea 8
+[SYN ERROR] Token inesperado ':' (tipo COLON) en línea 8
+[SYN ERROR] Token inesperado 'Int' (tipo ID) en línea 8
+[SYN ERROR] Token inesperado ']' (tipo RBRACKET) en línea 8
+[SYN ERROR] Token inesperado ':' (tipo COLON) en línea 8
+[SYN ERROR] Token inesperado ':' (tipo COLON) en línea 9
+[SYN ERROR] Token inesperado '[' (tipo LBRACKET) en línea 9
+[SYN ERROR] Token inesperado 'String' (tipo ID) en línea 9
+[SYN ERROR] Token inesperado ':' (tipo COLON) en línea 9
+[SYN ERROR] Token inesperado 'Any' (tipo ID) en línea 9
+[SYN ERROR] Token inesperado ']' (tipo RBRACKET) en línea 9
+[SYN ERROR] Token inesperado '5' (tipo INTEGER) en línea 10
+[SYN ERROR] Token inesperado ',' (tipo COMMA) en línea 14
+[SYN ERROR] Token inesperado '"Luis"' (tipo STRING) en línea 14
+[SYN ERROR] Token inesperado ',' (tipo COMMA) en línea 14
+[SYN ERROR] Token inesperado '"Carlos"' (tipo STRING) en línea 14
+[SYN ERROR] Token inesperado ']' (tipo RBRACKET) en línea 14
+[SYN ERROR] Token inesperado '{' (tipo LBRACE) en línea 14
+[SYN ERROR] Token inesperado 'print' (tipo ID) en línea 15
+[SYN ERROR] Token inesperado '(' (tipo LPAREN) en línea 15
+[SYN ERROR] Token inesperado '"Hola \(nombre)"' (tipo STRING) en línea 15
+[SYN ERROR] Token inesperado ')' (tipo RPAREN) en línea 15
+[SYN ERROR] Token inesperado '}' (tipo RBRACE) en línea 16
+[SYN ERROR] Token inesperado 'print' (tipo ID) en línea 17
+[SYN ERROR] Token inesperado '(' (tipo LPAREN) en línea 17
+[SYN ERROR] Token inesperado '"Ingresa tu nombre: "' (tipo STRING) en línea 17
+[SYN ERROR] Token inesperado ')' (tipo RPAREN) en línea 17
+[SYN ERROR] Token inesperado 'let' (tipo LET) en línea 18
+[SYN ERROR] Token inesperado 'nombre' (tipo ID) en línea 18
+[SYN ERROR] Token inesperado '=' (tipo ASSIGN) en línea 18
+[SYN ERROR] Token inesperado 'readLine' (tipo ID) en línea 18
+[SYN ERROR] Token inesperado '(' (tipo LPAREN) en línea 18
+[SYN ERROR] Token inesperado ')' (tipo RPAREN) en línea 18
+[SYN ERROR] Token inesperado 'print' (tipo ID) en línea 19
+[SYN ERROR] Token inesperado '(' (tipo LPAREN) en línea 19
+[SYN ERROR] Token inesperado '"Hola \(nombre!)"' (tipo STRING) en línea 19
+[SYN ERROR] Token inesperado ')' (tipo RPAREN) en línea 19
+[SYN ERROR] Token inesperado 'let' (tipo LET) en línea 20
+[SYN ERROR] Token inesperado 'calc' (tipo ID) en línea 20
+[SYN ERROR] Token inesperado '=' (tipo ASSIGN) en línea 20
+[SYN ERROR] Token inesperado '10' (tipo INTEGER) en línea 20
+[SYN ERROR] Token inesperado '3' (tipo INTEGER) en línea 20
+[SYN ERROR] Token inesperado 'let' (tipo LET) en línea 21
+[SYN ERROR] Token inesperado 'logicos' (tipo ID) en línea 21
+[SYN ERROR] Token inesperado '=' (tipo ASSIGN) en línea 21
+[SYN ERROR] Token inesperado '(' (tipo LPAREN) en línea 21
+[SYN ERROR] Token inesperado 'x' (tipo ID) en línea 21
+[SYN ERROR] Token inesperado ')' (tipo RPAREN) en línea 21
+[SYN ERROR] Token inesperado 'if' (tipo ID) en línea 22
+[SYN ERROR] Token inesperado 'x' (tipo ID) en línea 22
+[SYN ERROR] Token inesperado '{' (tipo LBRACE) en línea 22
+[SYN ERROR] Token inesperado 'print' (tipo ID) en línea 23
+[SYN ERROR] Token inesperado '(' (tipo LPAREN) en línea 23
+[SYN ERROR] Token inesperado '"Condición compleja"' (tipo STRING) en línea 23
+[SYN ERROR] Token inesperado ')' (tipo RPAREN) en línea 23
+[SYN ERROR] Token inesperado '}' (tipo RBRACE) en línea 24
+[SYN ERROR] Token inesperado 'let' (tipo LET) en línea 25
+[SYN ERROR] Token inesperado 'sinValor' (tipo ID) en línea 25
+[SYN ERROR] Token inesperado '=' (tipo ASSIGN) en línea 25
+[SYN ERROR] Token inesperado 'let' (tipo LET) en línea 26
+[SYN ERROR] Token inesperado 'faltaParentesis' (tipo ID) en línea 26
+[SYN ERROR] Token inesperado '=' (tipo ASSIGN) en línea 26
+[SYN ERROR] Token inesperado '(' (tipo LPAREN) en línea 26
+[SYN ERROR] Token inesperado '5' (tipo INTEGER) en línea 26
+[SYN ERROR] Fin de archivo inesperado (EOF) - posible estructura incompleta
+
+Errores semánticos:
+[SEM ERROR] Tipos incompatibles: Int * +
+[SEM ERROR] Tipos incompatibles: x + *
+[SEM ERROR] Variable 'i' usada sin declarar
+[SEM ERROR] Tipos incompatibles: String + *
+[SEM ERROR] Tipos incompatibles: + - /
+[SEM ERROR] Tipos incompatibles: - + Int
+[SEM ERROR] Tipos incompatibles: + > Int
+[SEM ERROR] Tipos incompatibles: y < Int
+[SEM ERROR] Tipos incompatibles: > && <
+[SEM ERROR] Tipos incompatibles: z == Bool
+[SEM ERROR] Tipos incompatibles: && || ('binop', '==', ('id', 'z', 'Bool'), ('literal', 'Bool', 'Bool'), 'z')
+[SEM ERROR] Tipos incompatibles: || > Int
+[SEM ERROR] Tipos incompatibles: y < Int
+[SEM ERROR] Tipos incompatibles: > && <
+[SEM ERROR] Tipos incompatibles: z == Bool
+[SEM ERROR] Tipos incompatibles: && || ==
+[SEM ERROR] Tipos incompatibles: || + Int
+

@@ -1,73 +1,76 @@
 import ply.yacc as yacc
-import primitivos_y_limitadores as lexmod
 from primitivos_y_limitadores import tokens
 import ply.lex as lex
 import datetime
 import os
 
 tabla_simbolos = {
-    "scopes": [
-        {}  # scope global
-    ]
+    "variables": {}
 }
-#agregar nuevo scope
-def agregar_variable(nombre, tipo):
+
+# lista para recolectar errores sintácticos durante el parseo
+parse_errors = []
+semantic_errors = []
+
+tokens = [
+    'INTEGER',
+    'FLOAT',
+    'DOUBLE',
+    'BOOLEAN',
+    'STRING',
+    'CHARACTER',
+    'RANGE',
+    'LPAREN', 'RPAREN',
+    'LBRACE', 'RBRACE',
+    'LBRACKET', 'RBRACKET',
+    'COMMA', 'SEMICOLON', 'COLON',
+    'LET',
+    'ID',
+    'ASSIGN',
+    'FOR',
+    'IN',
+    'LAMBDA_IN',
+    'PLUS','MINUS','TIMES','DIVIDE',
+    'EQ', 'NE', 'LT', 'GT', 'LE', 'GE',
+    'AND','OR','NOT'
+]
+
+# Single-char tokens as regex
+t_LPAREN    = r'\('
+t_RPAREN    = r'\)'
+t_LBRACE    = r'\{'
+t_RBRACE    = r'\}'
+t_LBRACKET  = r'\['
+t_RBRACKET  = r'\]'
+t_COMMA     = r','
+t_SEMICOLON = r';'
+t_COLON     = r':'
+t_ASSIGN    = r'='
+t_LAMBDA_IN = r'->'
+t_PLUS      = r'\+'
+t_MINUS     = r'-'
+t_TIMES     = r'\*'
+t_DIVIDE    = r'/'
+t_EQ        = r'=='
+t_NE        = r'!='
+t_LE        = r'<='
+t_GE        = r'>='
+t_LT        = r'<'
+t_GT        = r'>'
+t_AND       = r'&&'
+t_OR        = r'\|\|'
+t_NOT       = r'!'
+t_RANGE     = r'\.\.\.'
+
+# helpers / reserved
+reserved = {
+    'let': 'LET',
+    'for': 'FOR',
+    'in': 'IN',
+    'true': 'BOOLEAN',
+    'false': 'BOOLEAN',
     
-    scope = tabla_simbolos["scopes"][-1]
-    if nombre in scope:
-        semantic_errors.append(
-            f"[SEM ERROR] Variable '{nombre}' ya declarada en este ámbito"
-        )
-    else:
-        scope[nombre] = tipo
-# Buscar variable en scopes desde el más interno al más externo
-def buscar_variable(nombre):
-    
-    for scope in reversed(tabla_simbolos["scopes"]):
-        if nombre in scope:
-            return scope[nombre]
-    return None  # no existe
-
-def get_tipo(expr):
-    if isinstance(expr, tuple):
-        return expr[-1]   # último elemento siempre es tipo
-    return "Unknown"
-
-#tipos
-tipos_numericos = {"Int", "Float", "Double"}
-tipos_booleanos = {"Bool"}
-tipos_textuales = {"String", "Character"}
-
-def tipo_binop(op, tipo1, tipo2):
-    if tipo1 == "Unknown" or tipo2 == "Unknown":
-        return "Unknown"
-
-    # comparaciones
-    if op in ("<", "<=", ">", ">=", "==", "!="):
-        return "Bool"
-
-    # lógicas
-    if op in ("&&", "||"):
-        if tipo1 == tipo2 == "Bool":
-            return "Bool"
-        semantic_errors.append(f"[SEM ERROR] Operación lógica inválida: {tipo1} {op} {tipo2}")
-        return "Unknown"
-
-    # numéricas
-    if op in ("+", "-", "*", "/"):
-        if tipo1 in tipos_numericos and tipo2 in tipos_numericos:
-            if "Double" in (tipo1, tipo2):
-                return "Double"
-            if "Float" in (tipo1, tipo2):
-                return "Float"
-            return "Int"
-
-        if op == "+" and tipo1 == tipo2 == "String":
-            return "String"
-
-    semantic_errors.append(f"[SEM ERROR] Tipos incompatibles: {tipo1} {op} {tipo2}")
-    return "Unknown"
-
+}
 
 precedence = (
     ('left', 'OR'),
@@ -79,24 +82,106 @@ precedence = (
     ('right', 'NOT'),
     ('right', 'UMINUS'),
 )
-# lista para recolectar errores sintácticos durante el parseo
-parse_errors = []
-semantic_errors = []
 
+# ID rule (and reserved words)
+def t_ID(t):
+    r'[A-Za-z_][A-Za-z0-9_]*'
+    # check reserved
+    if t.value in reserved:
+        t.type = reserved[t.value]
+        if t.type == 'BOOLEAN':
+            t.value = True if t.value == 'true' else False
+    return t
 
-def p_program(p): #expresion general del programa
+#para la sintaxis
+def t_PRINT(t):
+    r'print'
+    t.type = 'ID'
+    t.value = 'print'
+    return t
+
+def t_READLINE(t):
+    r'readLine'
+    t.type = 'ID'
+    t.value = 'readLine'
+    return t
+
+def t_INPUT(t):
+    r'input'
+    t.type = 'ID'
+    t.value = 'input'
+    return t
+
+#tipos de numeros
+def t_DOUBLE(t):
+    r'\d+(\.\d+)?[eE][+-]?\d+'
+    try:
+        t.value = float(t.value)
+    except:
+        t.value = 0.0
+    return t
+
+def t_FLOAT(t):
+    r'\d+\.\d+'
+    try:
+        t.value = float(t.value)
+    except:
+        t.value = 0.0
+    return t
+
+def t_INTEGER(t):
+    r'\d+'
+    try:
+        t.value = int(t.value)
+    except:
+        t.value = 0
+    return t
+
+def t_BOOLEAN(t):
+    r'(true|false)'
+    t.value = True if t.value == 'true' else False
+    return t
+
+# STRING and CHARACTER
+def t_STRING(t):
+    r'\"([^\\\n]|(\\.))*?\"'
+    t.value = t.value
+    return t
+
+def t_CHARACTER(t):
+    r'\'([^\\\n]|(\\.))\''
+    # store inner char
+    t.value = t.value[1:-1]
+    return t
+
+# ignore spaces and tabs
+t_ignore = ' \t'
+
+# newline tracking
+def t_newline(t):
+    r'\n+'
+    t.lexer.lineno += len(t.value)
+
+# error handling
+def t_error(t):
+    print(f"[LEX ERROR] Caracter ilegal: '{t.value[0]}' en linea {t.lexer.lineno}")
+    t.lexer.skip(1)
+
+lexer = lex.lex()
+
+def p_program(p):
     """program : statements"""
     p[0] = ('program', p[1])
 
-def p_statements_multiple(p): #varias expresiones/statements
+def p_statements_multiple(p):
     """statements : statements statement"""
     p[0] = p[1] + [p[2]]
 
-def p_statements_single(p): #una sola expresión/statement
+def p_statements_single(p):
     """statements : statement"""
     p[0] = [p[1]]
 
-def p_statement(p): #expresion cualquiera, 
+def p_statement(p):
     """statement : decl_stmt
                  | expr_stmt
                  | for_stmt
@@ -111,20 +196,16 @@ def p_statement(p): #expresion cualquiera,
 def p_decl_stmt(p):
     """decl_stmt : LET ID ASSIGN expression optional_semicolon"""
     nombre = p[2]
-    expr = p[4]
-    tipo_expr = expr[1]
-    agregar_variable(nombre, tipo_expr)
-    p[0] = ("let_decl", nombre, expr)
+    tipo_expr = p[4][1]  # el tipo viene como ('expr', tipo)
 
-def p_decl_stmt_incompleto(p):
-    """decl_stmt : LET ID ASSIGN"""
-    semantic_errors.append("[SEM ERROR] Declaración incompleta: falta expresión en let")
-    p[0] = ("let_incompleto", p[2])
+    if nombre in tabla_simbolos["variables"]:
+        semantic_errors.append(
+            f"[SEM ERROR] La variable '{nombre}' ya está declarada"
+        )
+    else:
+        tabla_simbolos["variables"][nombre] = tipo_expr
 
-def p_decl_stmt_faltatipo(p):
-    """decl_stmt : LET ID"""
-    semantic_errors.append("[SEM ERROR] Falta tipo o valor en declaración")
-    p[0] = ("let_invalido", p[2])
+    p[0] = ('let_decl', nombre, p[4])
 
 def p_optional_semicolon(p):
     """optional_semicolon : SEMICOLON
@@ -134,38 +215,29 @@ def p_optional_semicolon(p):
 # bloque { statements }
 def p_block(p):
     """block : LBRACE statements RBRACE"""
-    tabla_simbolos["scopes"].append({})
-    
-    contenido = p[2]
-    tabla_simbolos["scopes"].pop()
-    p[0] = ("block", contenido)
+    p[0] = ('block', p[2])
 
 # for-in: for ID in expression block
 def p_for_stmt(p):
     """for_stmt : FOR ID IN expression block"""
-    tabla_simbolos["scopes"].append({})
-    agregar_variable(p[2], "Int")
-    contenido = p[5]
-    tabla_simbolos["scopes"].pop()
-    p[0] = ("for", p[2], p[4], contenido)
+    p[0] = ('for_in', p[2], p[4], p[5])
 
-  
+# Nuevo: Añadir una regla para el rango en la expresión
+def p_expression_range(p):
+    """expression : expression RANGE expression"""
+    p[0] = ('range', p[1], p[3], "Range")
 
 # print(...) or input(...)
 def p_expr_stmt_print(p):
     """expr_stmt : ID LPAREN arg_list RPAREN optional_semicolon"""
-    func = p[1]
-
-    if func == "print":
-        p[0] = ("print", p[3])
-
-    elif func == "readLine":
-        p[0] = ("readLine", "String")  # readLine() → String
-
+    # si p[1]=='print' manejamos impresión, si 'input' ingreso
+    if p[1] == 'print':
+        p[0] = ('print', p[3])
+    elif p[1] == 'input':
+        p[0] = ('input', None)
     else:
-        p[0] = ("call", func, p[3])
+        p[0] = ('call', p[1], p[3])
 
-#args de funciones: expression (, expression)*
 def p_arg_list(p):
     """arg_list : expression
                 | arg_list COMMA expression
@@ -178,23 +250,14 @@ def p_arg_list(p):
         p[0] = p[1] + [p[3]]
 
 # expresiones: lambdas, diccionarios, operaciones, paréntesis, literales, ids
-
-
 def p_expression_lambda(p):
     """expression : LPAREN params RPAREN LAMBDA_IN expression"""
-    params = p[2]            # lista de IDs
-    cuerpo = p[5]           # expresión del cuerpo
-    tipo_retorno = cuerpo[1] if isinstance(cuerpo, tuple) else "Unknown"
-    lambda_type = f"Lambda({tipo_retorno})"
-    p[0] = ("lambda", params, cuerpo, lambda_type)
+    p[0] = ('lambda', p[2], p[5])
 
 def p_expression_lambda_simple(p):
     """expression : ID LAMBDA_IN expression"""
-    param = p[1]
-    cuerpo = p[3]
-    tipo_retorno = cuerpo[1] if isinstance(cuerpo, tuple) else "Unknown"
-    lambda_type = f"Lambda({tipo_retorno})"
-    p[0] = ("lambda_simple", [param], cuerpo, lambda_type)
+    # forma simplificada: x -> expr
+    p[0] = ('lambda_simple', p[1], p[3])
 
 def p_params(p):
     """params : ID
@@ -208,41 +271,26 @@ def p_params(p):
         p[0] = p[1] + [p[3]]
 
 # diccionario: [ (expression : expression) ( , expr:expr )* ]
-def p_expression_dict(p):
-    """expression : LBRACKET dict_items RBRACKET"""
-    items = p[2]
-    if len(items) == 0:
-        p[0] = ("dict", [], "Dictionary(Empty)")
-        return
+def p_dict_literal(p):
+    """dict_literal : LBRACKET dict_items RBRACKET
+                    | LBRACKET RBRACKET"""
+    p[0] = ("dict", p[2] if len(p) == 4 else [])
 
-    tkey = items[0][1][1]
-    tval = items[0][2][1]
-
-    for (_, k, v) in items:
-        if k[1] != tkey:
-            semantic_errors.append(f"[SEM ERROR] Clave de diccionario incompatible: {k[1]} != {tkey}")
-        if v[1] != tval:
-            semantic_errors.append(f"[SEM ERROR] Valor de diccionario incompatible: {v[1]} != {tval}")
-
-    p[0] = ("dict", items, f"Dictionary({tkey},{tval})")
-
-def p_dict_items_multiple(p):
-    """dict_items : dict_items COMMA dict_item"""
-    p[0] = p[1] + [p[3]]
-
-def p_dict_items_single(p):
-    """dict_items : dict_item
-                  | """
-    if len(p) == 1:
-        p[0] = []
-    else:
+def p_dict_items(p):
+    """dict_items : dict_items COMMA dict_item
+                  | dict_item"""
+    if len(p) == 2:
         p[0] = [p[1]]
+    else:
+        p[1].append(p[3])
+        p[0] = p[1]
 
 def p_dict_item(p):
     """dict_item : expression COLON expression"""
-    p[0] = ('kv', p[1], p[3])
+    p[0] = ("pair", p[1], p[3])
 
-# operaciones binarias y literales
+
+
 #poner los tokens de igual-mayor, menor igual, etc confunde demasiado la verdad
 def p_expression_binop(p):
     """expression : expression PLUS expression
@@ -257,22 +305,24 @@ def p_expression_binop(p):
                   | expression GE expression
                   | expression AND expression
                   | expression OR expression"""
-    tipo_res = tipo_binop(p[2], get_tipo(p[1]), get_tipo(p[3]))
-    p[0] = ("binop", p[2], p[1], p[3], tipo_res)
+    tipo1 = p[1][1]
+    tipo2 = p[3][1]
 
-    
+    #tipos supersimples
+    if tipo1 != tipo2:
+        semantic_errors.append(
+            f"[SEM ERROR] Tipos incompatibles: {tipo1} {p[2]} {tipo2}"
+        )
+
+    p[0] = ('binop', p[2], p[1], p[3], tipo1)
 
 
 def p_expression_not(p):
     "expression : NOT expression"
-    if p[2][1] != "Bool":
-        semantic_errors.append(f"[SEM ERROR] '!' solo aplica a Bool, no a {p[2][1]}")
-    p[0] = ('not', p[2], "Bool")
+    p[0] = ('not', p[2],"Bool" )
 
 def p_expression_uminus(p):
     "expression : MINUS expression %prec UMINUS"
-    if p[2][1] not in tipos_numericos:
-        semantic_errors.append(f"[SEM ERROR] '-' unario solo aplica a números")
     p[0] = ('uminus', p[2], p[2][1])
 
 def p_expression_group(p):
@@ -300,46 +350,47 @@ def p_expression_literal(p):
 
 def p_expression_id(p):
     "expression : ID"
-    tipo = buscar_variable(p[1])
-    if tipo is None:
-        semantic_errors.append(f"[SEM ERROR] Variable '{p[1]}' usada sin declarar")
-        p[0] = ("id", p[1], "Unknown")
+    nombre = p[1]
+
+    if nombre not in tabla_simbolos["variables"]:
+        semantic_errors.append(
+            f"[SEM ERROR] Variable '{nombre}' usada sin declarar"
+        )
+        p[0] = ('id', nombre, "Unknown")
     else:
-        p[0] = ("id", p[1], tipo)
+        p[0] = ('id', nombre, tabla_simbolos["variables"][nombre])
+
+
 
 
 # manejo de errores sintácticos
-
-
 def p_error(p):
     global parse_errors
     if p:
-        parse_errors.append(f"[SYN ERROR] Token inesperado '{p.value}' en línea {p.lineno}")
+        msg = f"[SYN ERROR] Token inesperado '{p.value}' (tipo {p.type}) en línea {p.lineno}"
+        parse_errors.append(msg)
         parser.errok()
     else:
-        parse_errors.append("[SYN ERROR] EOF inesperado: estructura incompleta")
+        msg = "[SYN ERROR] Fin de archivo inesperado (EOF) - posible estructura incompleta"
+        parse_errors.append(msg)
 
-parser = yacc.yacc()
+parser = yacc.yacc(debug=True)
 
-def ejecutar_y_generalog(codigo_fuente: str, parser_obj=parser, usuario_git="AymanElS4", carpeta_base="Proyecto-LP-Analizador"):
+def ejecutar_y_generalog(codigo_fuente, parser, usuario_git="AymanElS4"):
     global parse_errors, semantic_errors
-    parse_errors = []
-    semantic_errors = []
 
-    lexer = lex.lex(module=lexmod)
-
+    parse_errors.clear()
+    semantic_errors.clear()
+    lexer.lineno = 1
+    
     try:
-        # parsea; forzar que use el lexer/tokenizador cargado en primitivos_y_limitadores
-        parser_obj.parse(codigo_fuente)
+        parser.parse(codigo_fuente, lexer=lexer)
     except Exception as e:
         parse_errors.append(f"[SYN ERROR] Excepción durante el parseo: {str(e)}")
 
-    # crear carpeta logs
-    carpeta_logs = os.path.join(carpeta_base, "logs")
-    os.makedirs(carpeta_logs, exist_ok=True)
-
+    carpeta_logs = os.path.join("Proyecto-LP-Analizador", "logs")
     fecha_hora = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
-    nombre_archivo = f"sintactico_semantico-{usuario_git}-{fecha_hora}.txt"
+    nombre_archivo = f"sintactico-{usuario_git}-{fecha_hora}.txt"
     ruta_log = os.path.join(carpeta_logs, nombre_archivo)
 
     with open(ruta_log, "w", encoding="utf-8") as f:
@@ -353,29 +404,27 @@ def ejecutar_y_generalog(codigo_fuente: str, parser_obj=parser, usuario_git="Aym
             for err in parse_errors:
                 f.write(err + "\n")
             f.write("\n")
-        else:
-            f.write("No se encontraron errores sintácticos.\n\n")
 
         if semantic_errors:
             f.write("Errores semánticos:\n")
             for err in semantic_errors:
                 f.write(err + "\n")
             f.write("\n")
-        else:
-            f.write("No se encontraron errores semánticos.\n\n")
 
-        # opcional: resumen de tabla de símbolos (scope global)
-        f.write("= Tabla de símbolos (scope global) =\n")
-        for k, v in tabla_simbolos["scopes"][0].items():
-            f.write(f"{k} : {v}\n")
+        if not parse_errors and not semantic_errors:
+            f.write("No se encontraron errores.\n")
 
     print(f"[OK] Log generado en: {ruta_log}")
     return ruta_log
 
-with open(r"Proyecto-LP-Analizador\algoritmos\algoritmosprimitivos.swift","r",encoding="utf-8") as f:
-   swiftcod = f.read()
-ruta = ejecutar_y_generalog(codigo_fuente=swiftcod, parser_obj=parser, usuario_git="AymanElS4")
-print("Ruta log:", ruta)
+with open(r"Proyecto-LP-Analizador\algoritmos\algoritmosprimitivos.swift", "r", encoding="utf-8") as f:
+    swiftcod = f.read()
+
+ejecutar_y_generalog(
+    codigo_fuente=swiftcod,
+    parser=parser,
+    usuario_git="AymanElS4"
+)
 
 
 
