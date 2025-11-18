@@ -1,16 +1,9 @@
-# analizador_swift.py
-# Lexer + Parser + Semántica para Swift-lite
-# Guarda como Proyecto-LP-Analizador/codigo/analizador_swift.py
-# Ejecuta: python analizador_swift.py
-
 import ply.lex as lex
 import ply.yacc as yacc
 import datetime
 import os
 
-# --------------------
-# LEXER
-# --------------------
+
 
 tokens = [
     'INTEGER','FLOAT','DOUBLE','BOOLEAN','STRING','CHARACTER',
