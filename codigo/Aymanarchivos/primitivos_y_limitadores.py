@@ -2,27 +2,36 @@ import ply.lex as lex
 import datetime
 import os
 
+# helpers / reserved
+reserved = {
+    'let': 'LET',
+    'for': 'FOR',
+    'in': 'IN',
+    'true': 'BOOLEAN',
+    'false': 'BOOLEAN',
+    'print': 'PRINT',
+    'readLine': 'READLINE',
+    
+}
+
 tokens = [
     'INTEGER',
     'FLOAT',
     'DOUBLE',
-    'BOOLEAN',
     'STRING',
     'CHARACTER',
     'LPAREN', 'RPAREN',
     'LBRACE', 'RBRACE',
     'LBRACKET', 'RBRACKET',
     'COMMA', 'SEMICOLON', 'COLON',
-    'LET',
     'ID',
     'ASSIGN',
-    'FOR',
-    'IN',
-    'LAMBDA_IN',
-    'PLUS','MINUS','TIMES','DIVIDE',
+    'RANGE',  
+    'ARROW',
+    'PLUS','MINUS','TIMES','DIVIDE', 'MOD',
     'EQ', 'NE', 'LT', 'GT', 'LE', 'GE',
     'AND','OR','NOT'
-]
+] + list(reserved.values())
 
 # Single-char tokens as regex
 t_LPAREN    = r'\('
@@ -35,11 +44,11 @@ t_COMMA     = r','
 t_SEMICOLON = r';'
 t_COLON     = r':'
 t_ASSIGN    = r'='
-t_LAMBDA_IN = r'->'
 t_PLUS      = r'\+'
 t_MINUS     = r'-'
 t_TIMES     = r'\*'
 t_DIVIDE    = r'/'
+t_MOD       = r'%'
 t_EQ        = r'=='
 t_NE        = r'!='
 t_LE        = r'<='
@@ -49,57 +58,24 @@ t_GT        = r'>'
 t_AND       = r'&&'
 t_OR        = r'\|\|'
 t_NOT       = r'!'
-
-# helpers / reserved
-reserved = {
-    'let': 'LET',
-    'for': 'FOR',
-    'in': 'IN',
-    'true': 'BOOLEAN',
-    'false': 'BOOLEAN',
-    
-}
+t_RANGE     = r'\.\.\.'   # Swift 0...5
+t_ARROW     = r'->' 
 
 # ID rule (and reserved words)
 def t_ID(t):
     r'[A-Za-z_][A-Za-z0-9_]*'
-    # check reserved
     if t.value in reserved:
         t.type = reserved[t.value]
         if t.type == 'BOOLEAN':
-            t.value = True if t.value == 'true' else False
+            t.value = (t.value == 'true')
     return t
 
-#para la sintaxis
-def t_PRINT(t):
-    r'print'
-    t.type = 'ID'
-    t.value = 'print'
-    return t
-
-def t_READLINE(t):
-    r'readLine'
-    t.type = 'ID'
-    t.value = 'readLine'
-    return t
-
-def t_INPUT(t):
-    r'input'
-    t.type = 'ID'
-    t.value = 'input'
-    return t
 
 #tipos de numeros
-def t_DOUBLE(t):
-    r'\d+(\.\d+)?[eE][+-]?\d+'
-    try:
-        t.value = float(t.value)
-    except:
-        t.value = 0.0
-    return t
+
 
 def t_FLOAT(t):
-    r'\d+\.\d+'
+    r'\d+(\.\d+)?[eE][+-]?\d+'
     try:
         t.value = float(t.value)
     except:
@@ -114,10 +90,6 @@ def t_INTEGER(t):
         t.value = 0
     return t
 
-def t_BOOLEAN(t):
-    r'(true|false)'
-    t.value = True if t.value == 'true' else False
-    return t
 
 # STRING and CHARACTER
 def t_STRING(t):
@@ -134,7 +106,7 @@ def t_CHARACTER(t):
 # ignore spaces and tabs
 t_ignore = ' \t'
 
-# newline tracking
+# newline 
 def t_newline(t):
     r'\n+'
     t.lexer.lineno += len(t.value)
