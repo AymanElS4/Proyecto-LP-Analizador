@@ -1,10 +1,8 @@
 Log semántico Swift
 Usuario: AymanElS4
-Fecha/Hora: 19112025-15h55
+Fecha/Hora: 19112025-16h26
 
 Errores semánticos:
-[SEM ERROR] Declaración incompleta: 'let resultado =' sin expresión
-[SEM ERROR] Declaración incompleta: 'let edades =' sin expresión
 [SEM ERROR] Variable 'String' usada sin declarar
 [SEM ERROR] Variable 'Int' usada sin declarar
 [SEM ERROR] Variable 'String' usada sin declarar
@@ -12,12 +10,7 @@ Errores semánticos:
 [SEM ERROR] Valor de diccionario incompatible: Bool != Int
 [SEM ERROR] Valor de diccionario incompatible: String != Int
 [SEM ERROR] Variable 'i' usada sin declarar
-[SEM ERROR] Declaración incompleta: 'let nombre =' sin expresión
-[SEM ERROR] Variable 'nombre' ya declarada en este scope
-[SEM ERROR] Declaración incompleta: 'let calc =' sin expresión
-[SEM ERROR] Declaración incompleta: 'let logicos =' sin expresión
 [SEM ERROR] Declaración incompleta: 'let sinValor =' sin expresión
-[SEM ERROR] Declaración incompleta: 'let faltaParentesis =' sin expresión
 
 = Tabla de símbolos global =
 print : BuiltInFunction
@@ -27,11 +20,10 @@ y : Double
 z : Bool
 letra : Character
 mensaje : String
-resultado : Unknown
-edades : Unknown
+resultado : Int
+edades : Dictionary(String,Int)
 i : Int
-nombre : Int
-calc : Unknown
-logicos : Unknown
+nombr : Int
+nombre : BuiltInFunction
+calc : Int
 sinValor : Unknown
-faltaParentesis : Unknown

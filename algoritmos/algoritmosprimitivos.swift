@@ -11,7 +11,7 @@ for i in 0...5 {
     print(i)
 }
 
-for nombre in ["Ana", "Luis", "Carlos"] {
+for nombr in ["Ana", "Luis", "Carlos"] {
     print("Hola \(nombre)")
 }
 print("Ingresa tu nombre: ")

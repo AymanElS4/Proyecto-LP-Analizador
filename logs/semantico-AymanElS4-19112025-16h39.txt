@@ -1,0 +1,26 @@
+Log semántico Swift
+Usuario: AymanElS4
+Fecha/Hora: 19112025-16h39
+
+Errores semánticos:
+[SEM ERROR] Valor de diccionario incompatible: Bool != Int
+[SEM ERROR] Valor de diccionario incompatible: String != Int
+[SEM ERROR] Variable 'i' usada sin declarar
+[SEM ERROR] Declaración incompleta: 'let sinValor =' sin expresión
+
+= Tabla de símbolos global =
+print : BuiltInFunction
+readLine : BuiltInFunction
+x : Int
+y : Double
+z : Bool
+letra : Character
+mensaje : String
+resultado : Int
+edades : Dictionary(String,Int)
+mezclado : Dictionary(String,Any)
+i : Int
+nombr : Int
+nombre : BuiltInFunction
+calc : Int
+sinValor : Unknown

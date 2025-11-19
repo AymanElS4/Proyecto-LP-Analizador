@@ -63,6 +63,8 @@ reserved = {
 
 tipos_nativos = {"Int","Float","Double","Bool","String","Character","Any"}
 
+
+
 def t_ID(t):
     r'[A-Za-z_][A-Za-z0-9_]*'
     if t.value in reserved:
@@ -283,21 +285,36 @@ def p_decl_stmt_onlyid(p):
 
 
 def p_decl_type(p):
-    """decl_type : COLON ID
+    """decl_type : COLON simple_type
                  | """
-    if len(p)==1:
+    if len(p) == 1:
         p[0] = None
     else:
-        tipo = p[2]
-        if tipo not in tipos_nativos:
-            semantic_errors.append(f"[SEM ERROR] Tipo desconocido '{tipo}'")
-        p[0] = ('type', tipo)
+        p[0] = ('type', p[2])
+
+
+
+
+def p_simple_type_id(p):
+    "simple_type : ID"
+    tipo = p[1]
+    if tipo not in tipos_nativos:
+        semantic_errors.append(f"[SEM ERROR] Tipo desconocido '{tipo}'")
+    p[0] = tipo
+
+def p_simple_type_list(p):
+    "simple_type : LBRACKET simple_type RBRACKET"
+    # Ejemplo: [Int]
+    p[0] = ('list', p[2])
+
+def p_simple_type_dict(p):
+    "simple_type : LBRACKET simple_type COLON simple_type RBRACKET"
+    # Ejemplo: [String:Int]
+    p[0] = ('dict', p[2], p[4])
 
 # ---------------- FOR-IN ----------------
 def p_for_stmt(p):
     "for_stmt : FOR ID IN expression block"
-    # declaración del iterador para evitar "i usada sin declarar".
-    # Lo registramos en el scope *actual* (evita falso negativo dentro del bloque).
     agregar_variable(p[2], "Int")
     p[0] = ('for', p[2], p[4], p[5])
 
@@ -367,16 +384,31 @@ def p_expression_literal(p):
 
 def p_expression_id(p):
     "expression : ID"
+    "expression : ID"
     nombre = p[1]
+
+    # Si es un tipo nativo, NO es una variable
+    if nombre in tipos_nativos:
+        p[0] = ('type_id', nombre, nombre)
+        return
+
     tipo = buscar_variable(nombre)
+    
     if tipo is None:
         semantic_errors.append(f"[SEM ERROR] Variable '{nombre}' usada sin declarar")
         tipo="Unknown"
+    
     p[0]=('id',nombre,tipo)
 
 def p_expression_group(p):
     "expression : LPAREN expression RPAREN"
-    p[0]=p[2]
+    p[0] = p[2]
+    
+def p_expression_group_lerror(p):
+    "expression : LPAREN error"
+    semantic_errors.append("[SEM ERROR] Paréntesis sin cerrar en expresión")
+    p[0] = ('error_expr', "parentesis_sin_cerrar")
+
 
 # ---------------- LAMBDA SIMPLE ----------------
 def p_expression_lambda(p):
@@ -461,12 +493,20 @@ def p_expression_if(p):
     p[0] = ('if',cond,p[3])
 
 # ---------------- ERROR ----------------
+
+
+
 def p_error(p):
+
     global parse_errors
     if p:
         parse_errors.append(f"[SYN ERROR] Token inesperado '{p.value}' (tipo {p.type}) en línea {p.lineno}")
     else:
         parse_errors.append("[SYN ERROR] EOF inesperado: estructura incompleta")
+
+    
+
+    
 
 parser = yacc.yacc()
 #logyejecucion
