@@ -9,7 +9,8 @@ tabla_simbolos = {"scopes":[{}]}
 tabla_simbolos["scopes"][0]["print"] = "BuiltInFunction"
 tabla_simbolos["scopes"][0]["readLine"] = "BuiltInFunction"
 semantic_errors = []
-
+parse_errors = []
+tipos_nativos = {"Int","Float","Double","Bool","String","Character","Any"}
 tokens = [
     'INTEGER','FLOAT','DOUBLE','BOOLEAN','STRING','CHARACTER',
     'LPAREN','RPAREN','LBRACE','RBRACE','LBRACKET','RBRACKET',
@@ -61,7 +62,7 @@ reserved = {
     'false':'BOOLEAN',
 }
 
-tipos_nativos = {"Int","Float","Double","Bool","String","Character","Any"}
+
 
 
 
@@ -191,7 +192,7 @@ precedence = (
     ('right','NOT'),
 )
 
-parse_errors = []
+
 # variable temporal para pasar la variable del for al block_enter
 pending_for_var = None
 
@@ -263,8 +264,6 @@ def p_decl_stmt(p):
          
                 tipo_final = type_to_string(struct)
     
-    
-
     agregar_variable(nombre, tipo_final)
     p[0] = ('let_decl', nombre, tipo_final, expr)
 
@@ -292,9 +291,6 @@ def p_decl_type(p):
     else:
         p[0] = ('type', p[2])
 
-
-
-
 def p_simple_type_id(p):
     "simple_type : ID"
     tipo = p[1]
@@ -320,7 +316,6 @@ def p_for_stmt(p):
     agregar_variable(p[2], "Int")
     
     p[0] = ('for', p[2], p[4], p[5])
-
 
 
 # ---------------- BLOCK ----------------
@@ -412,7 +407,6 @@ def p_expression_group_lerror(p):
     semantic_errors.append("[SEM ERROR] Paréntesis sin cerrar en expresión")
     p[0] = ('error_expr', "parentesis_sin_cerrar")
 
-
 # ---------------- LAMBDA SIMPLE ----------------
 def p_expression_lambda(p):
     "expression : ID LAMBDA_IN expression"
@@ -423,7 +417,6 @@ def p_expression_lambda(p):
     tipo_ret = get_tipo(cuerpo)
     cerrar_scope()
     p[0] = ('lambda_simple',[param],cuerpo,tipo_ret)
-
 
 # ---------------- DICTIONARIES ----------------
 def p_expression_bracket(p):
@@ -441,13 +434,10 @@ def p_expression_bracket(p):
         tkey = get_tipo(items[0][1])
         tval = get_tipo(items[0][2])
 
-        # VALIDAR CON TIPOS NATIVOS
         if tkey not in tipos_nativos:
             semantic_errors.append(f"[SEM ERROR] Tipo de clave no permitido en Swift: {tkey}")
         if tval not in tipos_nativos:
             semantic_errors.append(f"[SEM ERROR] Tipo de valor no permitido en Swift: {tval}")
-
-        # validate homogeneity (unless Any)
         for it in items:
             k = it[1]; v = it[2]
             if tkey != "Any" and get_tipo(k) != tkey:
@@ -496,9 +486,6 @@ def p_expression_if(p):
     p[0] = ('if',cond,p[3])
 
 # ---------------- ERROR ----------------
-
-
-
 def p_error(p):
 
     global parse_errors
@@ -506,61 +493,8 @@ def p_error(p):
         parse_errors.append(f"[SYN ERROR] Token inesperado '{p.value}' (tipo {p.type}) en línea {p.lineno}")
     else:
         parse_errors.append("[SYN ERROR] EOF inesperado: estructura incompleta")
-
-    
-
-    
-
 parser = yacc.yacc()
-#logyejecucion
-
-def ejecutar_y_generar_log(ruta_archivo, usuario_git="AymanElS4"):
-    global parse_errors, semantic_errors, tabla_simbolos
-    parse_errors = []
-    semantic_errors = []
-    tabla_simbolos = {"scopes":[{}]}
-    tabla_simbolos["scopes"][0]["print"] = "BuiltInFunction"
-    tabla_simbolos["scopes"][0]["readLine"] = "BuiltInFunction"
-
-   
-
-    # leer código
-    if os.path.exists(ruta_archivo):
-        with open(ruta_archivo,"r",encoding="utf-8") as f:
-            codigo = f.read()
-    else:
-        raise FileNotFoundError(f"No existe archivo: {ruta_archivo}")
-
-    # parse
-    parser.parse(codigo)
-
-    # crear carpeta logs
-    carpeta_logs = os.path.join(os.getcwd(), "Proyecto-LP-Analizador", "logs")
-    os.makedirs(carpeta_logs, exist_ok=True)
-    fecha_hora = datetime.datetime.now().strftime("%d%m%Y-%Hh%M")
-    nombre_log = f"semantico-{usuario_git}-{fecha_hora}.txt"
-    ruta_log = os.path.join(carpeta_logs,nombre_log)
-
-    with open(ruta_log,"w",encoding="utf-8") as f:
-        f.write("Log semántico Swift\n")
-        f.write(f"Usuario: {usuario_git}\n")
-        f.write(f"Fecha/Hora: {fecha_hora}\n\n")
-        if semantic_errors:
-            f.write("Errores semánticos:\n")
-            for e in semantic_errors:
-                f.write(e+"\n")
-        else:
-            f.write("No se encontraron errores semánticos.\n")
-        f.write("\n= Tabla de símbolos global =\n")
-        for k,v in tabla_simbolos["scopes"][0].items():
-            f.write(f"{k} : {v}\n")
-
-    print(f"[OK] Log semántico generado en: {ruta_log}")
-    return ruta_log
 
 
-if __name__=="__main__":
-    ruta_archivo = r"Proyecto-LP-Analizador\algoritmos\algoritmosprimitivos.swift"
-    ejecutar_y_generar_log(ruta_archivo)
-    pass
+
 
