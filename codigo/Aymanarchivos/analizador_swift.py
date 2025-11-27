@@ -314,8 +314,11 @@ def p_simple_type_dict(p):
 
 # ---------------- FOR-IN ----------------
 def p_for_stmt(p):
-    "for_stmt : FOR ID IN expression block"
+    '''for_stmt : FOR ID IN expression block
+                |FOR ASSIGN IN expression block
+                |FOR ID IN expression LBRACE stmt_list RBRACE'''
     agregar_variable(p[2], "Int")
+    
     p[0] = ('for', p[2], p[4], p[5])
 
 

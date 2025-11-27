@@ -26,7 +26,7 @@ tokens = [
     'COMMA', 'SEMICOLON', 'COLON',
     'ID',
     'ASSIGN',
-    'RANGE',  
+    'DOTDOTDOT',  
     'ARROW',
     'PLUS','MINUS','TIMES','DIVIDE', 'MOD',
     'EQ', 'NE', 'LT', 'GT', 'LE', 'GE',
@@ -58,7 +58,7 @@ t_GT        = r'>'
 t_AND       = r'&&'
 t_OR        = r'\|\|'
 t_NOT       = r'!'
-t_RANGE     = r'\.\.\.'   # Swift 0...5
+t_DOTDOTDOT     = r'\.\.\.'   # Swift 0...5
 t_ARROW     = r'->' 
 
 # ID rule (and reserved words)
@@ -117,35 +117,5 @@ def t_error(t):
     t.lexer.skip(1)
 
 lexer = lex.lex()
-def test_lexer_from_file(filepath, usuario_git="default"):
-    
-
-    # Leer archivo .swift
-    try:
-        with open(filepath, "r", encoding="utf-8") as f:
-            input_text = f.read()
-    except FileNotFoundError:
-        print(f"[ERROR] No se encontró el archivo: {filepath}")
-        return
-
-    lexer.input(input_text)
-
-    fecha_hora = datetime.datetime.now().strftime("%d-%m-%Y-%Hh%M")#fecha y hora
-    log_name = "Proyecto-LP-Analizador\logs\lexico-" + usuario_git + "-" + fecha_hora + ".txt"
-
-    with open(log_name, "w", encoding="utf-8") as log:
-        log.write(f"LOG DE TOKENS ({fecha_hora}) \n")
-        while True:
-            tok = lexer.token()
-            if not tok:
-                break
-            log.write(f"Línea {tok.lineno}: {tok.type} -> {tok.value}\n")
-
-    print(f"\nAnalisis lexico completado. Log guardado en: {log_name}")
 
 
-#ejemplo tipos primitivos y limitadores
-if __name__ == "__main__":
-    ruta_swift = r"Proyecto-LP-Analizador\algoritmos\algoritmosprimitivos.swift"
-    test_lexer_from_file(ruta_swift, usuario_git="AymanElS4")
-    

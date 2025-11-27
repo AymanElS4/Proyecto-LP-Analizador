@@ -11,7 +11,7 @@ for i in 0...5 {
     print(i)
 }
 
-for nombr in ["Ana", "Luis", "Carlos"] {
+for nombre in ["Ana", "Luis", "Carlos"] {
     print("Hola \(nombre)")
 }
 print("Ingresa tu nombre: ")
@@ -24,3 +24,6 @@ if x > 5 && y < 10 || z == true {
 }
 let sinValor =
 let faltaParentesis = (5 + 3
+for nombr in ["Ana", "Luis", "Carlos"] {
+    print("Hola \(nombre)")
+
