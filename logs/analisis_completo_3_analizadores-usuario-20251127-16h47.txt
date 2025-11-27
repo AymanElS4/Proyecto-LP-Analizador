@@ -1,0 +1,380 @@
+================================================================================
+ANÁLISIS COMPLETO CON LOS 3 ANALIZADORES
+================================================================================
+Fecha: 27/11/2025 16:47:28
+Usuario: usuario
+================================================================================
+
+┌─ ANALIZADOR DE ARIEL ─────────────────────────────────┐
+│ Tokens: 82
+│ Errores léxicos: 0
+│ Errores sintácticos: 139
+│ Errores semánticos: 0
+└───────────────────────────────────────────────────────┘
+
+ERRORES SINTÁCTICOS:
+--------------------------------------------------------------------------------
+❌ Error de sintaxis en línea 2: token inesperado 'Foundation' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 5: token inesperado 'var' (tipo: VAR)
+❌ Error de sintaxis en línea 5: token inesperado 'numero' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 5: token inesperado ':' (tipo: DOSPTOS)
+❌ Error de sintaxis en línea 5: token inesperado 'Int' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 6: token inesperado 'let' (tipo: LET)
+❌ Error de sintaxis en línea 6: token inesperado 'mensaje' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 6: token inesperado ':' (tipo: DOSPTOS)
+❌ Error de sintaxis en línea 6: token inesperado 'String' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 6: token inesperado '=' (tipo: ASIGNAR)
+❌ Error de sintaxis en línea 6: token inesperado 'Hola Swift' (tipo: CADENA)
+❌ Error de sintaxis en línea 7: token inesperado 'var' (tipo: VAR)
+❌ Error de sintaxis en línea 7: token inesperado 'resultado' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 7: token inesperado ':' (tipo: DOSPTOS)
+❌ Error de sintaxis en línea 7: token inesperado 'Double' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 7: token inesperado '=' (tipo: ASIGNAR)
+❌ Error de sintaxis en línea 7: token inesperado '3.14159' (tipo: DECIMAL)
+❌ Error de sintaxis en línea 10: token inesperado 'func' (tipo: FUNC)
+❌ Error de sintaxis en línea 10: token inesperado 'sumar' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 10: token inesperado '(' (tipo: LPAREN)
+❌ Error de sintaxis en línea 10: token inesperado 'a' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 10: token inesperado ':' (tipo: DOSPTOS)
+❌ Error de sintaxis en línea 10: token inesperado 'Int' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 10: token inesperado ',' (tipo: COMA)
+❌ Error de sintaxis en línea 10: token inesperado 'b' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 10: token inesperado ':' (tipo: DOSPTOS)
+❌ Error de sintaxis en línea 10: token inesperado 'Int' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 10: token inesperado ')' (tipo: RPAREN)
+❌ Error de sintaxis en línea 10: token inesperado '->' (tipo: FLECHA)
+❌ Error de sintaxis en línea 10: token inesperado 'Int' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 10: token inesperado '{' (tipo: LBRACE)
+❌ Error de sintaxis en línea 11: token inesperado 'return' (tipo: RETURN)
+❌ Error de sintaxis en línea 11: token inesperado 'a' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 12: token inesperado '}' (tipo: RBRACE)
+❌ Error de sintaxis en línea 15: token inesperado 'if' (tipo: IF)
+❌ Error de sintaxis en línea 15: token inesperado 'numero' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 15: token inesperado '{' (tipo: LBRACE)
+❌ Error de sintaxis en línea 16: token inesperado 'print' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 16: token inesperado '(' (tipo: LPAREN)
+❌ Error de sintaxis en línea 16: token inesperado 'NÃºmero positivo' (tipo: CADENA)
+❌ Error de sintaxis en línea 16: token inesperado ')' (tipo: RPAREN)
+❌ Error de sintaxis en línea 17: token inesperado '}' (tipo: RBRACE)
+❌ Error de sintaxis en línea 17: token inesperado 'else' (tipo: ELSE)
+❌ Error de sintaxis en línea 17: token inesperado '{' (tipo: LBRACE)
+❌ Error de sintaxis en línea 18: token inesperado 'print' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 18: token inesperado '(' (tipo: LPAREN)
+❌ Error de sintaxis en línea 18: token inesperado 'NÃºmero negativo' (tipo: CADENA)
+❌ Error de sintaxis en línea 18: token inesperado ')' (tipo: RPAREN)
+❌ Error de sintaxis en línea 19: token inesperado '}' (tipo: RBRACE)
+❌ Error de sintaxis en línea 22: token inesperado 'var' (tipo: VAR)
+❌ Error de sintaxis en línea 22: token inesperado 'contador' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 22: token inesperado '=' (tipo: ASIGNAR)
+❌ Error de sintaxis en línea 22: token inesperado '5' (tipo: ENTERO)
+❌ Error de sintaxis en línea 23: token inesperado 'while' (tipo: WHILE)
+❌ Error de sintaxis en línea 23: token inesperado 'contador' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 23: token inesperado '{' (tipo: LBRACE)
+❌ Error de sintaxis en línea 24: token inesperado 'print' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 24: token inesperado '(' (tipo: LPAREN)
+❌ Error de sintaxis en línea 24: token inesperado 'contador' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 24: token inesperado ')' (tipo: RPAREN)
+❌ Error de sintaxis en línea 25: token inesperado 'contador' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 25: token inesperado '=' (tipo: ASIGNAR)
+❌ Error de sintaxis en línea 25: token inesperado 'contador' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 26: token inesperado '}' (tipo: RBRACE)
+❌ Error de sintaxis en línea 29: token inesperado 'let' (tipo: LET)
+❌ Error de sintaxis en línea 29: token inesperado 'numeros' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 29: token inesperado ':' (tipo: DOSPTOS)
+❌ Error de sintaxis en línea 29: token inesperado '[' (tipo: LBRACKET)
+❌ Error de sintaxis en línea 29: token inesperado 'Int' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 29: token inesperado ']' (tipo: RBRACKET)
+❌ Error de sintaxis en línea 29: token inesperado '=' (tipo: ASIGNAR)
+❌ Error de sintaxis en línea 29: token inesperado '[' (tipo: LBRACKET)
+❌ Error de sintaxis en línea 29: token inesperado '1' (tipo: ENTERO)
+❌ Error de sintaxis en línea 29: token inesperado ',' (tipo: COMA)
+❌ Error de sintaxis en línea 29: token inesperado '2' (tipo: ENTERO)
+❌ Error de sintaxis en línea 29: token inesperado ',' (tipo: COMA)
+❌ Error de sintaxis en línea 29: token inesperado '3' (tipo: ENTERO)
+❌ Error de sintaxis en línea 29: token inesperado ',' (tipo: COMA)
+❌ Error de sintaxis en línea 29: token inesperado '4' (tipo: ENTERO)
+❌ Error de sintaxis en línea 29: token inesperado ',' (tipo: COMA)
+❌ Error de sintaxis en línea 29: token inesperado '5' (tipo: ENTERO)
+❌ Error de sintaxis en línea 29: token inesperado ']' (tipo: RBRACKET)
+❌ Error de sintaxis en línea 30: token inesperado 'for' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 30: token inesperado 'item' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 30: token inesperado 'in' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 30: token inesperado '0' (tipo: ENTERO)
+❌ Error de sintaxis en línea 30: token inesperado '.' (tipo: PUNTO)
+❌ Error de sintaxis en línea 30: token inesperado '.' (tipo: PUNTO)
+❌ Error de sintaxis en línea 30: token inesperado '4' (tipo: ENTERO)
+❌ Error de sintaxis en línea 30: token inesperado '{' (tipo: LBRACE)
+❌ Error de sintaxis en línea 31: token inesperado '(' (tipo: LPAREN)
+❌ Error de sintaxis en línea 31: token inesperado 'numeros' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 31: token inesperado ')' (tipo: RPAREN)
+❌ Error de sintaxis en línea 32: token inesperado '}' (tipo: RBRACE)
+❌ Error de sintaxis en línea 35: token inesperado 'let' (tipo: LET)
+❌ Error de sintaxis en línea 35: token inesperado 'datos' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 35: token inesperado ':' (tipo: DOSPTOS)
+❌ Error de sintaxis en línea 35: token inesperado '[' (tipo: LBRACKET)
+❌ Error de sintaxis en línea 35: token inesperado 'String' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 35: token inesperado ':' (tipo: DOSPTOS)
+❌ Error de sintaxis en línea 35: token inesperado 'Int' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 35: token inesperado ']' (tipo: RBRACKET)
+❌ Error de sintaxis en línea 35: token inesperado '=' (tipo: ASIGNAR)
+❌ Error de sintaxis en línea 35: token inesperado '[' (tipo: LBRACKET)
+❌ Error de sintaxis en línea 35: token inesperado 'edad' (tipo: CADENA)
+❌ Error de sintaxis en línea 35: token inesperado ':' (tipo: DOSPTOS)
+❌ Error de sintaxis en línea 35: token inesperado '25' (tipo: ENTERO)
+❌ Error de sintaxis en línea 35: token inesperado ',' (tipo: COMA)
+❌ Error de sintaxis en línea 35: token inesperado 'aÃ±o' (tipo: CADENA)
+❌ Error de sintaxis en línea 35: token inesperado ':' (tipo: DOSPTOS)
+❌ Error de sintaxis en línea 35: token inesperado '2025' (tipo: ENTERO)
+❌ Error de sintaxis en línea 35: token inesperado ']' (tipo: RBRACKET)
+❌ Error de sintaxis en línea 38: token inesperado 'class' (tipo: CLASS)
+❌ Error de sintaxis en línea 38: token inesperado 'Persona' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 38: token inesperado '{' (tipo: LBRACE)
+❌ Error de sintaxis en línea 39: token inesperado 'var' (tipo: VAR)
+❌ Error de sintaxis en línea 39: token inesperado 'nombre' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 39: token inesperado ':' (tipo: DOSPTOS)
+❌ Error de sintaxis en línea 39: token inesperado 'String' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 39: token inesperado '=' (tipo: ASIGNAR)
+❌ Error de sintaxis en línea 39: token inesperado 'Juan' (tipo: CADENA)
+❌ Error de sintaxis en línea 40: token inesperado 'var' (tipo: VAR)
+❌ Error de sintaxis en línea 40: token inesperado 'edad' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 40: token inesperado ':' (tipo: DOSPTOS)
+❌ Error de sintaxis en línea 40: token inesperado 'Int' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 40: token inesperado '=' (tipo: ASIGNAR)
+❌ Error de sintaxis en línea 40: token inesperado '25' (tipo: ENTERO)
+❌ Error de sintaxis en línea 41: token inesperado '}' (tipo: RBRACE)
+❌ Error de sintaxis en línea 43: token inesperado 'let' (tipo: LET)
+❌ Error de sintaxis en línea 43: token inesperado 'persona' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 43: token inesperado '=' (tipo: ASIGNAR)
+❌ Error de sintaxis en línea 43: token inesperado 'Persona' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 43: token inesperado '(' (tipo: LPAREN)
+❌ Error de sintaxis en línea 43: token inesperado ')' (tipo: RPAREN)
+❌ Error de sintaxis en línea 44: token inesperado 'print' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 44: token inesperado '(' (tipo: LPAREN)
+❌ Error de sintaxis en línea 44: token inesperado 'persona' (tipo: IDENTIFICADOR)
+❌ Error de sintaxis en línea 44: token inesperado ')' (tipo: RPAREN)
+❌ Error de sintaxis: fin de archivo inesperado
+
+┌─ ANALIZADOR DE AYMAN ─────────────────────────────────┐
+│ Errores sintácticos: 19
+│ Errores semánticos: 52
+└───────────────────────────────────────────────────────┘
+
+ERRORES SINTÁCTICOS:
+--------------------------------------------------------------------------------
+[SYN ERROR] Token inesperado '/' (tipo DIVIDE) en línea 1
+[SYN ERROR] Token inesperado '/' (tipo DIVIDE) en línea 4
+[SYN ERROR] Token inesperado ':' (tipo COLON) en línea 5
+[SYN ERROR] Token inesperado ':' (tipo COLON) en línea 7
+[SYN ERROR] Token inesperado '/' (tipo DIVIDE) en línea 9
+[SYN ERROR] Token inesperado ':' (tipo COLON) en línea 10
+[SYN ERROR] Token inesperado '}' (tipo RBRACE) en línea 12
+[SYN ERROR] Token inesperado 'else' (tipo ELSE) en línea 17
+[SYN ERROR] Token inesperado '}' (tipo RBRACE) en línea 19
+[SYN ERROR] Token inesperado '=' (tipo ASSIGN) en línea 22
+[SYN ERROR] Token inesperado '{' (tipo LBRACE) en línea 23
+[SYN ERROR] Token inesperado '=' (tipo ASSIGN) en línea 25
+[SYN ERROR] Token inesperado '}' (tipo RBRACE) en línea 26
+[SYN ERROR] Token inesperado '/' (tipo DIVIDE) en línea 34
+[SYN ERROR] Token inesperado '/' (tipo DIVIDE) en línea 37
+[SYN ERROR] Token inesperado '{' (tipo LBRACE) en línea 38
+[SYN ERROR] Token inesperado ':' (tipo COLON) en línea 40
+[SYN ERROR] Token inesperado ')' (tipo RPAREN) en línea 43
+[SYN ERROR] Token inesperado 'nombre' (tipo ID) en línea 44
+
+ERRORES SEMÁNTICOS:
+--------------------------------------------------------------------------------
+[SEM ERROR] Variable 'Ejemplo' usada sin declarar
+[SEM ERROR] Variable 'de' usada sin declarar
+[SEM ERROR] Variable 'c' usada sin declarar
+[SEM ERROR] Variable 'digo' usada sin declarar
+[SEM ERROR] Variable 'Swift' usada sin declarar
+[SEM ERROR] Variable 'para' usada sin declarar
+[SEM ERROR] Variable 'an' usada sin declarar
+[SEM ERROR] Variable 'lisis' usada sin declarar
+[SEM ERROR] Variable 'completo' usada sin declarar
+[SEM ERROR] Variable 'import' usada sin declarar
+[SEM ERROR] Variable 'Foundation' usada sin declarar
+[SEM ERROR] Variable 'Variables' usada sin declarar
+[SEM ERROR] Variable 'y' usada sin declarar
+[SEM ERROR] Variable 'constantes' usada sin declarar
+[SEM ERROR] Variable 'var' usada sin declarar
+[SEM ERROR] Variable 'numero' usada sin declarar
+[SEM ERROR] Variable 'var' usada sin declarar
+[SEM ERROR] Variable 'resultado' usada sin declarar
+[SEM ERROR] Variable 'Funci' usada sin declarar
+[SEM ERROR] Variable 'n' usada sin declarar
+[SEM ERROR] Variable 'con' usada sin declarar
+[SEM ERROR] Variable 'par' usada sin declarar
+[SEM ERROR] Variable 'metros' usada sin declarar
+[SEM ERROR] Variable 'func' usada sin declarar
+[SEM ERROR] Variable 'sumar' usada sin declarar
+[SEM ERROR] Variable 'a' usada sin declarar
+[SEM ERROR] Paréntesis sin cerrar en expresión
+[SEM ERROR] Variable 'b' usada sin declarar
+[SEM ERROR] Variable 'return' usada sin declarar
+[SEM ERROR] Variable 'a' usada sin declarar
+[SEM ERROR] Variable 'b' usada sin declarar
+[SEM ERROR] Variable 'Condicionales' usada sin declarar
+[SEM ERROR] Variable 'numero' usada sin declarar
+[SEM ERROR] Variable 'Bucles' usada sin declarar
+[SEM ERROR] Variable 'var' usada sin declarar
+[SEM ERROR] Variable 'while' usada sin declarar
+[SEM ERROR] Variable 'contador' usada sin declarar
+[SEM ERROR] Variable 'contador' usada sin declarar
+[SEM ERROR] Variable 'contador' usada sin declarar
+[SEM ERROR] Variable 'Arrays' usada sin declarar
+[SEM ERROR] Variable 'Diccionarios' usada sin declarar
+[SEM ERROR] Variable 'Clase' usada sin declarar
+[SEM ERROR] Variable 'class' usada sin declarar
+[SEM ERROR] Variable 'Persona' usada sin declarar
+[SEM ERROR] Variable 'var' usada sin declarar
+[SEM ERROR] Variable 'nombre' usada sin declarar
+[SEM ERROR] Variable 'var' usada sin declarar
+[SEM ERROR] Variable 'edad' usada sin declarar
+[SEM ERROR] Variable 'Persona' usada sin declarar
+[SEM ERROR] Paréntesis sin cerrar en expresión
+[SEM ERROR] Paréntesis sin cerrar en expresión
+[SEM ERROR] Variable 'nombre' usada sin declarar
+
+┌─ ANALIZADOR DE JORDAN ────────────────────────────────┐
+│ Errores sintácticos: 135
+└───────────────────────────────────────────────────────┘
+
+ERRORES SINTÁCTICOS:
+--------------------------------------------------------------------------------
+Linea 2: token 'import' inesperado (tipo: IMPORT)
+Linea 6: token 'let' inesperado (tipo: LET)
+Linea 6: token 'mensaje' inesperado (tipo: ID)
+Linea 6: token ':' inesperado (tipo: COLON)
+Linea 6: token 'String' inesperado (tipo: ID)
+Linea 6: token '=' inesperado (tipo: ASSIGN)
+Linea 6: token '"Hola Swift"' inesperado (tipo: STRING)
+Linea 7: token 'var' inesperado (tipo: VAR)
+Linea 7: token 'resultado' inesperado (tipo: ID)
+Linea 7: token ':' inesperado (tipo: COLON)
+Linea 7: token 'Double' inesperado (tipo: ID)
+Linea 7: token '=' inesperado (tipo: ASSIGN)
+Linea 7: token '3.14159' inesperado (tipo: NUMBER)
+Linea 10: token 'func' inesperado (tipo: FUNC)
+Linea 10: token 'sumar' inesperado (tipo: ID)
+Linea 10: token '(' inesperado (tipo: LPAREN)
+Linea 10: token 'a' inesperado (tipo: ID)
+Linea 10: token ':' inesperado (tipo: COLON)
+Linea 10: token 'Int' inesperado (tipo: ID)
+Linea 10: token ',' inesperado (tipo: COMMA)
+Linea 10: token 'b' inesperado (tipo: ID)
+Linea 10: token ':' inesperado (tipo: COLON)
+Linea 10: token 'Int' inesperado (tipo: ID)
+Linea 10: token ')' inesperado (tipo: RPAREN)
+Linea 10: token '->' inesperado (tipo: ARROW)
+Linea 10: token 'Int' inesperado (tipo: ID)
+Linea 10: token '{' inesperado (tipo: LBRACE)
+Linea 11: token 'return' inesperado (tipo: RETURN)
+Linea 11: token 'a' inesperado (tipo: ID)
+Linea 12: token '}' inesperado (tipo: RBRACE)
+Linea 15: token 'if' inesperado (tipo: IF)
+Linea 15: token 'numero' inesperado (tipo: ID)
+Linea 15: token '{' inesperado (tipo: LBRACE)
+Linea 16: token 'print' inesperado (tipo: ID)
+Linea 16: token '(' inesperado (tipo: LPAREN)
+Linea 16: token '"Número positivo"' inesperado (tipo: STRING)
+Linea 16: token ')' inesperado (tipo: RPAREN)
+Linea 17: token '}' inesperado (tipo: RBRACE)
+Linea 17: token 'else' inesperado (tipo: ELSE)
+Linea 17: token '{' inesperado (tipo: LBRACE)
+Linea 18: token 'print' inesperado (tipo: ID)
+Linea 18: token '(' inesperado (tipo: LPAREN)
+Linea 18: token '"Número negativo"' inesperado (tipo: STRING)
+Linea 18: token ')' inesperado (tipo: RPAREN)
+Linea 19: token '}' inesperado (tipo: RBRACE)
+Linea 22: token 'var' inesperado (tipo: VAR)
+Linea 22: token 'contador' inesperado (tipo: ID)
+Linea 22: token '=' inesperado (tipo: ASSIGN)
+Linea 22: token '5' inesperado (tipo: NUMBER)
+Linea 23: token 'while' inesperado (tipo: WHILE)
+Linea 23: token 'contador' inesperado (tipo: ID)
+Linea 23: token '{' inesperado (tipo: LBRACE)
+Linea 24: token 'print' inesperado (tipo: ID)
+Linea 24: token '(' inesperado (tipo: LPAREN)
+Linea 24: token 'contador' inesperado (tipo: ID)
+Linea 24: token ')' inesperado (tipo: RPAREN)
+Linea 25: token 'contador' inesperado (tipo: ID)
+Linea 25: token '=' inesperado (tipo: ASSIGN)
+Linea 25: token 'contador' inesperado (tipo: ID)
+Linea 26: token '}' inesperado (tipo: RBRACE)
+Linea 29: token 'let' inesperado (tipo: LET)
+Linea 29: token 'numeros' inesperado (tipo: ID)
+Linea 29: token ':' inesperado (tipo: COLON)
+Linea 29: token '[' inesperado (tipo: LBRACKET)
+Linea 29: token 'Int' inesperado (tipo: ID)
+Linea 29: token ']' inesperado (tipo: RBRACKET)
+Linea 29: token '=' inesperado (tipo: ASSIGN)
+Linea 29: token '[' inesperado (tipo: LBRACKET)
+Linea 29: token '1' inesperado (tipo: NUMBER)
+Linea 29: token ',' inesperado (tipo: COMMA)
+Linea 29: token '2' inesperado (tipo: NUMBER)
+Linea 29: token ',' inesperado (tipo: COMMA)
+Linea 29: token '3' inesperado (tipo: NUMBER)
+Linea 29: token ',' inesperado (tipo: COMMA)
+Linea 29: token '4' inesperado (tipo: NUMBER)
+Linea 29: token ',' inesperado (tipo: COMMA)
+Linea 29: token '5' inesperado (tipo: NUMBER)
+Linea 29: token ']' inesperado (tipo: RBRACKET)
+Linea 30: token 'for' inesperado (tipo: FOR)
+Linea 30: token 'item' inesperado (tipo: ID)
+Linea 30: token 'in' inesperado (tipo: IN)
+Linea 30: token '0' inesperado (tipo: NUMBER)
+Linea 30: token '{' inesperado (tipo: LBRACE)
+Linea 31: token 'print' inesperado (tipo: ID)
+Linea 31: token '(' inesperado (tipo: LPAREN)
+Linea 31: token 'numeros' inesperado (tipo: ID)
+Linea 31: token ')' inesperado (tipo: RPAREN)
+Linea 32: token '}' inesperado (tipo: RBRACE)
+Linea 35: token 'let' inesperado (tipo: LET)
+Linea 35: token 'datos' inesperado (tipo: ID)
+Linea 35: token ':' inesperado (tipo: COLON)
+Linea 35: token '[' inesperado (tipo: LBRACKET)
+Linea 35: token 'String' inesperado (tipo: ID)
+Linea 35: token ':' inesperado (tipo: COLON)
+Linea 35: token 'Int' inesperado (tipo: ID)
+Linea 35: token ']' inesperado (tipo: RBRACKET)
+Linea 35: token '=' inesperado (tipo: ASSIGN)
+Linea 35: token '[' inesperado (tipo: LBRACKET)
+Linea 35: token '"edad"' inesperado (tipo: STRING)
+Linea 35: token ':' inesperado (tipo: COLON)
+Linea 35: token '25' inesperado (tipo: NUMBER)
+Linea 35: token ',' inesperado (tipo: COMMA)
+Linea 35: token '"año"' inesperado (tipo: STRING)
+Linea 35: token ':' inesperado (tipo: COLON)
+Linea 35: token '2025' inesperado (tipo: NUMBER)
+Linea 35: token ']' inesperado (tipo: RBRACKET)
+Linea 38: token 'class' inesperado (tipo: CLASS)
+Linea 38: token 'Persona' inesperado (tipo: ID)
+Linea 38: token '{' inesperado (tipo: LBRACE)
+Linea 39: token 'var' inesperado (tipo: VAR)
+Linea 39: token 'nombre' inesperado (tipo: ID)
+Linea 39: token ':' inesperado (tipo: COLON)
+Linea 39: token 'String' inesperado (tipo: ID)
+Linea 39: token '=' inesperado (tipo: ASSIGN)
+Linea 39: token '"Juan"' inesperado (tipo: STRING)
+Linea 40: token 'var' inesperado (tipo: VAR)
+Linea 40: token 'edad' inesperado (tipo: ID)
+Linea 40: token ':' inesperado (tipo: COLON)
+Linea 40: token 'Int' inesperado (tipo: ID)
+Linea 40: token '=' inesperado (tipo: ASSIGN)
+Linea 40: token '25' inesperado (tipo: NUMBER)
+Linea 41: token '}' inesperado (tipo: RBRACE)
+Linea 43: token 'let' inesperado (tipo: LET)
+Linea 43: token 'persona' inesperado (tipo: ID)
+Linea 43: token '=' inesperado (tipo: ASSIGN)
+Linea 43: token 'Persona' inesperado (tipo: ID)
+Linea 43: token '(' inesperado (tipo: LPAREN)
+Linea 43: token ')' inesperado (tipo: RPAREN)
+Linea 44: token 'print' inesperado (tipo: ID)
+Linea 44: token '(' inesperado (tipo: LPAREN)
+Linea 44: token 'persona' inesperado (tipo: ID)
+Linea 44: token '.' inesperado (tipo: DOT)
+Linea 44: token 'nombre' inesperado (tipo: ID)
+Linea 44: token ')' inesperado (tipo: RPAREN)
+Linea desconocida: fin de archivo inesperado
+

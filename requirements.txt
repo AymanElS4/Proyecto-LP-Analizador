@@ -1,0 +1,12 @@
+# Dependencias del Proyecto - Analizador de Swift
+# Proyecto de Lenguajes de Programación
+
+# PLY (Python Lex-Yacc) - Herramienta para crear analizadores léxicos y sintácticos
+# Usada por: Ariel, Ayman, Jordan
+ply==3.11
+
+# NOTA: tkinter viene incluido con Python en la mayoría de instalaciones
+# Si tkinter no está disponible:
+# - Windows: Ya incluido con Python
+# - Linux (Ubuntu/Debian): sudo apt-get install python3-tk
+# - macOS: Ya incluido con Python

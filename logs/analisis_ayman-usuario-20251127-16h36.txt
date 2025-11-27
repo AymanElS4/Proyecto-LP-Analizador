@@ -1,0 +1,79 @@
+======================================================================
+ANÁLISIS - AYMAN EL SALOUS
+Fecha: 27/11/2025 16:36:36
+======================================================================
+
+ERRORES SINTÁCTICOS:
+[SYN ERROR] Token inesperado '/' (tipo DIVIDE) en línea 1
+[SYN ERROR] Token inesperado '/' (tipo DIVIDE) en línea 4
+[SYN ERROR] Token inesperado ':' (tipo COLON) en línea 5
+[SYN ERROR] Token inesperado ':' (tipo COLON) en línea 7
+[SYN ERROR] Token inesperado '/' (tipo DIVIDE) en línea 9
+[SYN ERROR] Token inesperado ':' (tipo COLON) en línea 10
+[SYN ERROR] Token inesperado '}' (tipo RBRACE) en línea 12
+[SYN ERROR] Token inesperado 'else' (tipo ELSE) en línea 17
+[SYN ERROR] Token inesperado '}' (tipo RBRACE) en línea 19
+[SYN ERROR] Token inesperado '=' (tipo ASSIGN) en línea 22
+[SYN ERROR] Token inesperado '{' (tipo LBRACE) en línea 23
+[SYN ERROR] Token inesperado '=' (tipo ASSIGN) en línea 25
+[SYN ERROR] Token inesperado '}' (tipo RBRACE) en línea 26
+[SYN ERROR] Token inesperado '/' (tipo DIVIDE) en línea 34
+[SYN ERROR] Token inesperado '/' (tipo DIVIDE) en línea 37
+[SYN ERROR] Token inesperado '{' (tipo LBRACE) en línea 38
+[SYN ERROR] Token inesperado ':' (tipo COLON) en línea 40
+[SYN ERROR] Token inesperado ')' (tipo RPAREN) en línea 43
+[SYN ERROR] Token inesperado 'nombre' (tipo ID) en línea 44
+
+ERRORES SEMÁNTICOS:
+[SEM ERROR] Variable 'Ejemplo' usada sin declarar
+[SEM ERROR] Variable 'de' usada sin declarar
+[SEM ERROR] Variable 'c' usada sin declarar
+[SEM ERROR] Variable 'digo' usada sin declarar
+[SEM ERROR] Variable 'Swift' usada sin declarar
+[SEM ERROR] Variable 'para' usada sin declarar
+[SEM ERROR] Variable 'an' usada sin declarar
+[SEM ERROR] Variable 'lisis' usada sin declarar
+[SEM ERROR] Variable 'import' usada sin declarar
+[SEM ERROR] Variable 'Foundation' usada sin declarar
+[SEM ERROR] Variable 'Variables' usada sin declarar
+[SEM ERROR] Variable 'y' usada sin declarar
+[SEM ERROR] Variable 'constantes' usada sin declarar
+[SEM ERROR] Variable 'var' usada sin declarar
+[SEM ERROR] Variable 'numero' usada sin declarar
+[SEM ERROR] Variable 'var' usada sin declarar
+[SEM ERROR] Variable 'resultado' usada sin declarar
+[SEM ERROR] Variable 'Funci' usada sin declarar
+[SEM ERROR] Variable 'n' usada sin declarar
+[SEM ERROR] Variable 'con' usada sin declarar
+[SEM ERROR] Variable 'par' usada sin declarar
+[SEM ERROR] Variable 'metros' usada sin declarar
+[SEM ERROR] Variable 'func' usada sin declarar
+[SEM ERROR] Variable 'sumar' usada sin declarar
+[SEM ERROR] Variable 'a' usada sin declarar
+[SEM ERROR] Paréntesis sin cerrar en expresión
+[SEM ERROR] Variable 'b' usada sin declarar
+[SEM ERROR] Variable 'return' usada sin declarar
+[SEM ERROR] Variable 'a' usada sin declarar
+[SEM ERROR] Variable 'b' usada sin declarar
+[SEM ERROR] Variable 'Condicionales' usada sin declarar
+[SEM ERROR] Variable 'numero' usada sin declarar
+[SEM ERROR] Variable 'Bucles' usada sin declarar
+[SEM ERROR] Variable 'var' usada sin declarar
+[SEM ERROR] Variable 'while' usada sin declarar
+[SEM ERROR] Variable 'contador' usada sin declarar
+[SEM ERROR] Variable 'contador' usada sin declarar
+[SEM ERROR] Variable 'contador' usada sin declarar
+[SEM ERROR] Variable 'Arrays' usada sin declarar
+[SEM ERROR] Variable 'Diccionarios' usada sin declarar
+[SEM ERROR] Variable 'Clase' usada sin declarar
+[SEM ERROR] Variable 'class' usada sin declarar
+[SEM ERROR] Variable 'Persona' usada sin declarar
+[SEM ERROR] Variable 'var' usada sin declarar
+[SEM ERROR] Variable 'nombre' usada sin declarar
+[SEM ERROR] Variable 'var' usada sin declarar
+[SEM ERROR] Variable 'edad' usada sin declarar
+[SEM ERROR] Variable 'Persona' usada sin declarar
+[SEM ERROR] Paréntesis sin cerrar en expresión
+[SEM ERROR] Paréntesis sin cerrar en expresión
+[SEM ERROR] Variable 'nombre' usada sin declarar
+
