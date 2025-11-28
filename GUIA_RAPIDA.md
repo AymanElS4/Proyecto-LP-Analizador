@@ -1,4 +1,4 @@
-# 🚀 GUÍA RÁPIDA DE INICIO
+# 🚀 GUÍA RÁPIDA DE INICIO - ANALIZADOR UNIFICADO
 
 ## Instalación en 3 Pasos
 
@@ -7,16 +7,30 @@
 pip install -r requirements.txt
 ```
 
-### 2️⃣ Ejecutar la Interfaz Gráfica
+### 2️⃣ Ejecutar la Interfaz Gráfica Unificada
 ```bash
 python interfaz_grafica.py
 ```
 
-### 3️⃣ Probar el Analizador
-1. Click en "📂 Abrir Archivo"
-2. Selecciona un archivo de `algoritmos/`
-3. Click en "▶️ ANALIZAR CÓDIGO"
-4. Revisa los resultados en las pestañas
+### 3️⃣ Analizar Código
+1. El código de ejemplo ya está cargado
+2. Click en "▶️ ANALIZAR (Consenso de 3 Analizadores)"
+3. Revisa los resultados en las pestañas:
+   - **Resumen**: Errores confirmados por los 3
+   - **Errores Detectados**: Solo errores con consenso
+   - **Tokens**: Tokens reconocidos
+   - **Detalles**: Vista individual de cada analizador
+
+---
+
+## 🎯 ¿Cómo Funciona el Consenso?
+
+El analizador ejecuta **simultáneamente** los 3 analizadores (Ariel, Ayman, Jordan) y:
+
+✅ **MUESTRA el error** → Si los 3 analizadores lo detectaron  
+❌ **NO MUESTRA** → Si al menos 1 analizador NO lo detectó
+
+**Principio**: Si al menos un integrante implementó bien esa parte, el código puede ejecutarse.
 
 ---
 

@@ -126,6 +126,7 @@ def p_statements_single(p):
 
 def p_statement(p):
     """statement : if_statement
+                 | while_statement
                  | function_declaration
                  | var_declaration
                  | expression_statement
@@ -135,6 +136,10 @@ def p_statement(p):
         p[0] = ('empty',)
     else:
         p[0] = p[1]
+
+def p_while_statement(p):
+    """while_statement : WHILE LPAREN expression RPAREN block"""
+    p[0] = ('while', p[3], p[5])
 
 def p_if_statement_simple(p):
     """if_statement : IF LPAREN expression RPAREN block"""

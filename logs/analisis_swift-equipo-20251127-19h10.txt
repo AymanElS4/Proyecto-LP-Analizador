@@ -1,0 +1,23 @@
+================================================================================
+ANÁLISIS DE CÓDIGO SWIFT
+================================================================================
+Fecha: 27/11/2025 19:10:37
+Usuario: equipo
+================================================================================
+
+Tokens reconocidos: 29
+Errores léxicos: 0
+Errores sintácticos: 7
+Errores semánticos: 0
+TOTAL DE ERRORES: 7
+
+ERRORES SINTÁCTICOS:
+--------------------------------------------------------------------------------
+  • Línea 7: ❌ Error de sintaxis en línea 7: token inesperado 'x' (tipo: IDENTIFICADOR)
+  • Línea 8: ❌ Error de sintaxis en línea 8: token inesperado 'x' (tipo: IDENTIFICADOR)
+  • Línea 9: ❌ Error de sintaxis en línea 9: token inesperado '}' (tipo: RBRACE)
+  • Línea 11: ❌ Error de sintaxis en línea 11: token inesperado 'var' (tipo: VAR)
+  • Línea 12: ❌ Error de sintaxis en línea 12: token inesperado 'while' (tipo: WHILE)
+  • Línea 13: ❌ Error de sintaxis en línea 13: token inesperado 'i' (tipo: IDENTIFICADOR)
+  • Línea 14: ❌ Error de sintaxis en línea 14: token inesperado '}' (tipo: RBRACE)
+

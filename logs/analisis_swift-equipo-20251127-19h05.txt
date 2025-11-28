@@ -1,0 +1,93 @@
+================================================================================
+ANÁLISIS DE CÓDIGO SWIFT
+================================================================================
+Fecha: 27/11/2025 19:05:04
+Usuario: equipo
+================================================================================
+
+Tokens reconocidos: 29
+Errores léxicos: 0
+Errores sintácticos: 65
+Errores semánticos: 9
+TOTAL DE ERRORES: 74
+
+ERRORES SINTÁCTICOS:
+--------------------------------------------------------------------------------
+  • ❌ Error de sintaxis en línea 12: token inesperado 'while' (tipo: WHILE)
+  • ❌ Error de sintaxis en línea 12: token inesperado '>' (tipo: MAYOR)
+  • Linea 8: token '+' inesperado (tipo: PLUS)
+  • Linea 11: token ':' inesperado (tipo: COLON)
+  • ❌ Error de sintaxis en línea 11: token inesperado '3' (tipo: ENTERO)
+  • Linea 12: token '>' inesperado (tipo: GT)
+  • [SYN ERROR] Token inesperado '}' (tipo RBRACE) en línea 9
+  • ❌ Error de sintaxis en línea 9: token inesperado '}' (tipo: RBRACE)
+  • Linea 11: token '=' inesperado (tipo: ASSIGN)
+  • Linea 7: token 'x' inesperado (tipo: ID)
+  • Linea 11: token 'var' inesperado (tipo: VAR)
+  • Linea 12: token 'while' inesperado (tipo: WHILE)
+  • ❌ Error de sintaxis en línea 8: token inesperado ';' (tipo: PUNTOYCOMA)
+  • ❌ Error de sintaxis en línea 11: token inesperado ';' (tipo: PUNTOYCOMA)
+  • ❌ Error de sintaxis en línea 7: token inesperado '5' (tipo: ENTERO)
+  • ❌ Error de sintaxis en línea 12: token inesperado '0' (tipo: ENTERO)
+  • Linea 8: token '1' inesperado (tipo: NUMBER)
+  • ❌ Error de sintaxis en línea 13: token inesperado 'i' (tipo: IDENTIFICADOR)
+  • Linea 13: token ';' inesperado (tipo: SEMICOLON)
+  • [SYN ERROR] Token inesperado '}' (tipo RBRACE) en línea 14
+  • ❌ Error de sintaxis en línea 7: token inesperado '>' (tipo: MAYOR)
+  • Linea 8: token ';' inesperado (tipo: SEMICOLON)
+  • [SYN ERROR] Token inesperado ':' (tipo COLON) en línea 3
+  • Linea 8: token 'x' inesperado (tipo: ID)
+  • Linea 12: token '{' inesperado (tipo: LBRACE)
+  • Linea 14: token '}' inesperado (tipo: RBRACE)
+  • ❌ Error de sintaxis en línea 13: token inesperado '1' (tipo: ENTERO)
+  • Linea 9: token '}' inesperado (tipo: RBRACE)
+  • [SYN ERROR] Token inesperado '/' (tipo DIVIDE) en línea 1
+  • [SYN ERROR] Token inesperado '=' (tipo ASSIGN) en línea 8
+  • ❌ Error de sintaxis en línea 12: token inesperado 'i' (tipo: IDENTIFICADOR)
+  • Linea 11: token 'Int' inesperado (tipo: ID)
+  • [SYN ERROR] Token inesperado '{' (tipo LBRACE) en línea 12
+  • ❌ Error de sintaxis en línea 14: token inesperado '}' (tipo: RBRACE)
+  • ❌ Error de sintaxis en línea 13: token inesperado '=' (tipo: ASIGNAR)
+  • ❌ Error de sintaxis en línea 11: token inesperado ':' (tipo: DOSPTOS)
+  • Linea 8: token '=' inesperado (tipo: ASSIGN)
+  • Linea 11: token ';' inesperado (tipo: SEMICOLON)
+  • Linea 13: token '=' inesperado (tipo: ASSIGN)
+  • Linea 13: token '-' inesperado (tipo: MINUS)
+  • ❌ Error de sintaxis: fin de archivo inesperado
+  • Linea 11: token '3' inesperado (tipo: NUMBER)
+  • ❌ Error de sintaxis en línea 7: token inesperado 'x' (tipo: IDENTIFICADOR)
+  • Linea 7: token '{' inesperado (tipo: LBRACE)
+  • ❌ Error de sintaxis en línea 11: token inesperado 'i' (tipo: IDENTIFICADOR)
+  • Linea 7: token '>' inesperado (tipo: GT)
+  • Linea 13: token '1' inesperado (tipo: NUMBER)
+  • ❌ Error de sintaxis en línea 11: token inesperado 'var' (tipo: VAR)
+  • ❌ Error de sintaxis en línea 13: token inesperado ';' (tipo: PUNTOYCOMA)
+  • ❌ Error de sintaxis en línea 11: token inesperado 'Int' (tipo: IDENTIFICADOR)
+  • Linea 7: token '5' inesperado (tipo: NUMBER)
+  • Linea desconocida: fin de archivo inesperado
+  • Linea 11: token 'i' inesperado (tipo: ID)
+  • ❌ Error de sintaxis en línea 8: token inesperado 'x' (tipo: IDENTIFICADOR)
+  • Linea 12: token 'i' inesperado (tipo: ID)
+  • ❌ Error de sintaxis en línea 12: token inesperado '{' (tipo: LBRACE)
+  • Linea 12: token '0' inesperado (tipo: NUMBER)
+  • ❌ Error de sintaxis en línea 7: token inesperado '{' (tipo: LBRACE)
+  • Linea 13: token 'i' inesperado (tipo: ID)
+  • [SYN ERROR] Token inesperado ':' (tipo COLON) en línea 4
+  • ❌ Error de sintaxis en línea 8: token inesperado '1' (tipo: ENTERO)
+  • ❌ Error de sintaxis en línea 11: token inesperado '=' (tipo: ASIGNAR)
+  • ❌ Error de sintaxis en línea 8: token inesperado '+' (tipo: SUMA)
+  • ❌ Error de sintaxis en línea 8: token inesperado '=' (tipo: ASIGNAR)
+  • ❌ Error de sintaxis en línea 13: token inesperado '-' (tipo: RESTA)
+
+ERRORES SEMÁNTICOS:
+--------------------------------------------------------------------------------
+  • [SEM ERROR] Variable 'x' usada sin declarar
+  • [SEM ERROR] Variable 'Swift' usada sin declarar
+  • [SEM ERROR] Variable 'de' usada sin declarar
+  • [SEM ERROR] Variable 'i' usada sin declarar
+  • [SEM ERROR] Variable 'Ejemplo' usada sin declarar
+  • [SEM ERROR] Variable 'basico' usada sin declarar
+  • [SEM ERROR] Variable 'while' usada sin declarar
+  • [SEM ERROR] Variable 'y' usada sin declarar
+  • [SEM ERROR] Variable 'var' usada sin declarar
+

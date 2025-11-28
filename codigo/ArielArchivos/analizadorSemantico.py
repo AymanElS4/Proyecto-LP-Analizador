@@ -2,7 +2,7 @@ from __future__ import annotations
 import ply.yacc as yacc
 from typing import Dict, List, Optional
 # Importamos la lista de tokens del lexer
-from analizadorLexicoArielAAT123 import tokens, errores_lexicos, tokens_reconocidos
+from analizadorLexicoArielAAT123 import tokens, errores_lexicos, tokens_reconocidos, analizador_lexico
 
 # =========================================================================
 # 2. NODOS DEL ÁRBOL (AST) - Clases mínimas requeridas
@@ -97,9 +97,6 @@ class Identificador(Nodo):
 # 3. ANALIZADOR SINTÁCTICO (PLY Yacc) - Reglas Ariel + Mínimas
 # =========================================================================
 errores_sintacticos: List[str] = []
-
-# La variable tokens ya está importada del archivo lexer
-# tokens = tokens # no es necesario, pero aquí se usaría si no se importara directamente.
 
 precedence = (
     ('left', 'OR'),
@@ -313,15 +310,26 @@ def p_expresion_identificador(p):
 
 def p_error(p):
     if p:
-        errores_sintacticos.append(
-            f"❌ Error de sintaxis en línea {p.lineno}: token inesperado '{p.value}' (tipo: {p.type})"
-        )
+        # Limitar el número de errores reportados para evitar spam
+        if len(errores_sintacticos) < 10:
+            errores_sintacticos.append(
+                f"❌ Error de sintaxis en línea {p.lineno}: token inesperado '{p.value}' (tipo: {p.type})"
+            )
+        
+        # Recuperación de errores: Descartar tokens hasta encontrar un punto de sincronización
+        while True:
+            tok = analizador_lexico.token()
+            if not tok: 
+                break
+            if tok.type in ['PUNTOYCOMA', 'RBRACE', 'LBRACE']:
+                break
+        
         analizador_sintactico.errok()
+        return tok
     else:
         errores_sintacticos.append("❌ Error de sintaxis: fin de archivo inesperado")
 
 analizador_sintactico = yacc.yacc()
-
 
 # =========================================================================
 # 4. ANALIZADOR SEMÁNTICO (Reglas Ariel)
@@ -477,6 +485,3 @@ class AnalizadorSemantico:
     def verificar_AccesoMiembro(self, n: AccesoMiembro):
         self.verificar(n.objeto)
         return 'Desconocido'
-        
-# Inicialización del analizador semántico (Se mueve a main.py para la ejecución)
-# analizador_sintactico = yacc.yacc()

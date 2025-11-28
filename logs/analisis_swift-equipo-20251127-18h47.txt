@@ -1,0 +1,92 @@
+================================================================================
+ANÁLISIS DE CÓDIGO SWIFT
+================================================================================
+Fecha: 27/11/2025 18:47:31
+Usuario: equipo
+================================================================================
+
+Tokens reconocidos: 46
+Errores léxicos: 0
+Errores sintácticos: 76
+Errores semánticos: 0
+TOTAL DE ERRORES: 76
+
+ERRORES SINTÁCTICOS:
+--------------------------------------------------------------------------------
+  • ❌ Error de sintaxis en línea 2: token inesperado 'Foundation' (tipo: IDENTIFICADOR)
+  • ❌ Error de sintaxis en línea 4: token inesperado 'var' (tipo: VAR)
+  • ❌ Error de sintaxis en línea 4: token inesperado 'numero' (tipo: IDENTIFICADOR)
+  • ❌ Error de sintaxis en línea 4: token inesperado ':' (tipo: DOSPTOS)
+  • ❌ Error de sintaxis en línea 4: token inesperado 'Int' (tipo: IDENTIFICADOR)
+  • ❌ Error de sintaxis en línea 5: token inesperado 'let' (tipo: LET)
+  • ❌ Error de sintaxis en línea 5: token inesperado 'mensaje' (tipo: IDENTIFICADOR)
+  • ❌ Error de sintaxis en línea 5: token inesperado ':' (tipo: DOSPTOS)
+  • ❌ Error de sintaxis en línea 5: token inesperado 'String' (tipo: IDENTIFICADOR)
+  • ❌ Error de sintaxis en línea 5: token inesperado '=' (tipo: ASIGNAR)
+  • ❌ Error de sintaxis en línea 5: token inesperado 'Hola Swift' (tipo: CADENA)
+  • ❌ Error de sintaxis en línea 7: token inesperado 'func' (tipo: FUNC)
+  • ❌ Error de sintaxis en línea 7: token inesperado 'sumar' (tipo: IDENTIFICADOR)
+  • ❌ Error de sintaxis en línea 7: token inesperado '(' (tipo: LPAREN)
+  • ❌ Error de sintaxis en línea 7: token inesperado 'a' (tipo: IDENTIFICADOR)
+  • ❌ Error de sintaxis en línea 7: token inesperado ':' (tipo: DOSPTOS)
+  • ❌ Error de sintaxis en línea 7: token inesperado 'Int' (tipo: IDENTIFICADOR)
+  • ❌ Error de sintaxis en línea 7: token inesperado ',' (tipo: COMA)
+  • ❌ Error de sintaxis en línea 7: token inesperado 'b' (tipo: IDENTIFICADOR)
+  • ❌ Error de sintaxis en línea 7: token inesperado ':' (tipo: DOSPTOS)
+  • ❌ Error de sintaxis en línea 7: token inesperado 'Int' (tipo: IDENTIFICADOR)
+  • ❌ Error de sintaxis en línea 7: token inesperado ')' (tipo: RPAREN)
+  • ❌ Error de sintaxis en línea 7: token inesperado '->' (tipo: FLECHA)
+  • ❌ Error de sintaxis en línea 7: token inesperado 'Int' (tipo: IDENTIFICADOR)
+  • ❌ Error de sintaxis en línea 7: token inesperado '{' (tipo: LBRACE)
+  • ❌ Error de sintaxis en línea 8: token inesperado 'return' (tipo: RETURN)
+  • ❌ Error de sintaxis en línea 8: token inesperado 'a' (tipo: IDENTIFICADOR)
+  • ❌ Error de sintaxis en línea 9: token inesperado '}' (tipo: RBRACE)
+  • ❌ Error de sintaxis en línea 11: token inesperado 'if' (tipo: IF)
+  • ❌ Error de sintaxis en línea 11: token inesperado 'numero' (tipo: IDENTIFICADOR)
+  • ❌ Error de sintaxis en línea 11: token inesperado '{' (tipo: LBRACE)
+  • ❌ Error de sintaxis en línea 12: token inesperado 'print' (tipo: IDENTIFICADOR)
+  • ❌ Error de sintaxis en línea 12: token inesperado '(' (tipo: LPAREN)
+  • ❌ Error de sintaxis en línea 12: token inesperado 'Positivo' (tipo: CADENA)
+  • ❌ Error de sintaxis en línea 12: token inesperado ')' (tipo: RPAREN)
+  • ❌ Error de sintaxis en línea 13: token inesperado '}' (tipo: RBRACE)
+  • ❌ Error de sintaxis en línea 15: token inesperado 'var' (tipo: VAR)
+  • ❌ Error de sintaxis en línea 15: token inesperado 'contador' (tipo: IDENTIFICADOR)
+  • ❌ Error de sintaxis en línea 15: token inesperado '=' (tipo: ASIGNAR)
+  • ❌ Error de sintaxis en línea 15: token inesperado '5' (tipo: ENTERO)
+  • ❌ Error de sintaxis en línea 16: token inesperado 'while' (tipo: WHILE)
+  • ❌ Error de sintaxis en línea 16: token inesperado 'contador' (tipo: IDENTIFICADOR)
+  • ❌ Error de sintaxis en línea 16: token inesperado '{' (tipo: LBRACE)
+  • ❌ Error de sintaxis en línea 17: token inesperado 'contador' (tipo: IDENTIFICADOR)
+  • ❌ Error de sintaxis en línea 17: token inesperado '=' (tipo: ASIGNAR)
+  • ❌ Error de sintaxis en línea 17: token inesperado 'contador' (tipo: IDENTIFICADOR)
+  • ❌ Error de sintaxis en línea 18: token inesperado '}' (tipo: RBRACE)
+  • ❌ Error de sintaxis en línea 20: token inesperado 'let' (tipo: LET)
+  • ❌ Error de sintaxis en línea 20: token inesperado 'numeros' (tipo: IDENTIFICADOR)
+  • ❌ Error de sintaxis en línea 20: token inesperado ':' (tipo: DOSPTOS)
+  • ❌ Error de sintaxis en línea 20: token inesperado '[' (tipo: LBRACKET)
+  • ❌ Error de sintaxis en línea 20: token inesperado 'Int' (tipo: IDENTIFICADOR)
+  • ❌ Error de sintaxis en línea 20: token inesperado ']' (tipo: RBRACKET)
+  • ❌ Error de sintaxis en línea 20: token inesperado '=' (tipo: ASIGNAR)
+  • ❌ Error de sintaxis en línea 20: token inesperado '[' (tipo: LBRACKET)
+  • ❌ Error de sintaxis en línea 20: token inesperado '1' (tipo: ENTERO)
+  • ❌ Error de sintaxis en línea 20: token inesperado ',' (tipo: COMA)
+  • ❌ Error de sintaxis en línea 20: token inesperado '2' (tipo: ENTERO)
+  • ❌ Error de sintaxis en línea 20: token inesperado ',' (tipo: COMA)
+  • ❌ Error de sintaxis en línea 20: token inesperado '3' (tipo: ENTERO)
+  • ❌ Error de sintaxis en línea 20: token inesperado ']' (tipo: RBRACKET)
+  • ❌ Error de sintaxis en línea 21: token inesperado 'let' (tipo: LET)
+  • ❌ Error de sintaxis en línea 21: token inesperado 'datos' (tipo: IDENTIFICADOR)
+  • ❌ Error de sintaxis en línea 21: token inesperado ':' (tipo: DOSPTOS)
+  • ❌ Error de sintaxis en línea 21: token inesperado '[' (tipo: LBRACKET)
+  • ❌ Error de sintaxis en línea 21: token inesperado 'String' (tipo: IDENTIFICADOR)
+  • ❌ Error de sintaxis en línea 21: token inesperado ':' (tipo: DOSPTOS)
+  • ❌ Error de sintaxis en línea 21: token inesperado 'Int' (tipo: IDENTIFICADOR)
+  • ❌ Error de sintaxis en línea 21: token inesperado ']' (tipo: RBRACKET)
+  • ❌ Error de sintaxis en línea 21: token inesperado '=' (tipo: ASIGNAR)
+  • ❌ Error de sintaxis en línea 21: token inesperado '[' (tipo: LBRACKET)
+  • ❌ Error de sintaxis en línea 21: token inesperado 'edad' (tipo: CADENA)
+  • ❌ Error de sintaxis en línea 21: token inesperado ':' (tipo: DOSPTOS)
+  • ❌ Error de sintaxis en línea 21: token inesperado '25' (tipo: ENTERO)
+  • ❌ Error de sintaxis en línea 21: token inesperado ']' (tipo: RBRACKET)
+  • ❌ Error de sintaxis: fin de archivo inesperado
+

@@ -1,12 +1,20 @@
-# Analizador de Swift - Proyecto de Lenguajes de Programación
+# Analizador Unificado de Swift - Proyecto de Lenguajes de Programación
 
 ## 📋 Descripción del Proyecto
 
-Este proyecto implementa un analizador completo para el lenguaje Swift que incluye:
+Este proyecto implementa un **analizador unificado** para el lenguaje Swift que combina el trabajo de 3 integrantes:
+
+### 🎯 Enfoque de Consenso
+El analizador ejecuta **simultáneamente** los 3 analizadores del equipo y:
+- ✅ **Solo muestra errores** cuando **LOS 3 analizadores coinciden** en detectar un problema en la misma línea
+- ✅ **Si al menos 1 analizador NO detecta el error**, significa que ese integrante implementó correctamente esa parte
+- ✅ El resultado es un análisis **robusto** que solo reporta errores reales confirmados por consenso
+
+### Componentes:
 - **Analizador Léxico**: Reconoce tokens, palabras reservadas, identificadores y operadores
-- **Analizador Sintáctico**: Valida la estructura gramatical del código
+- **Analizador Sintáctico**: Valida la estructura gramatical del código  
 - **Analizador Semántico**: Verifica reglas semánticas de tipos y alcance
-- **Interfaz Gráfica Moderna**: Permite análisis interactivo con visualización de resultados
+- **Interfaz Gráfica Unificada**: Muestra resultados consolidados con errores confirmados
 
 ## 👥 Integrantes del Equipo
 
@@ -79,7 +87,7 @@ Proyecto-LP-Analizador/
 
 ## 🎯 Uso del Programa
 
-### Interfaz Gráfica (RECOMENDADO) ⭐
+### Interfaz Gráfica Unificada (RECOMENDADO) ⭐
 
 Ejecute la interfaz gráfica principal:
 
@@ -87,42 +95,34 @@ Ejecute la interfaz gráfica principal:
 python interfaz_grafica.py
 ```
 
-#### Características de la Interfaz:
+#### 🎯 Cómo Funciona el Consenso:
 
-##### 🎨 Diseño Moderno
-- Tema oscuro profesional inspirado en VS Code
-- Números de línea en el editor
-- Sintaxis resaltada
-- Pestañas organizadas para resultados
+1. **Ejecución Simultánea**: Al hacer click en "ANALIZAR", se ejecutan los 3 analizadores automáticamente
+2. **Detección de Consenso**: El sistema compara los errores línea por línea
+3. **Reporte Inteligente**:
+   - ✅ **Se muestra el error** → Si los 3 analizadores lo detectaron
+   - ❌ **NO se muestra** → Si al menos 1 analizador NO lo detectó (significa que ese integrante lo implementó bien)
 
-##### 🔄 Selector de Analizador
-La interfaz permite seleccionar entre tres analizadores:
+#### 📊 Pestañas de Resultados:
 
-1. **Completo (Ariel)**: Análisis léxico + sintáctico + semántico completo
-2. **Ayman**: Enfocado en tipos primitivos, diccionarios, arrays, for-in
-3. **Jordan**: Enfocado en sintaxis de if, funciones, arrays, return
+1. **📋 Resumen**: Estadísticas generales y errores confirmados por consenso
+2. **❌ Errores Detectados**: Solo errores donde LOS 3 coinciden
+3. **🔤 Tokens**: Lista completa de tokens reconocidos
+4. **📝 Detalles por Analizador**: Vista individual de cada analizador
 
-##### 📂 Funciones Disponibles
-- **Abrir**: Cargar archivos `.swift` desde la carpeta `algoritmos/`
+#### 📂 Funciones Disponibles:
+- **Abrir**: Cargar archivos `.swift` desde `algoritmos/`
 - **Guardar**: Guardar el código actual
 - **Nuevo**: Limpiar el editor
 - **Ejemplo**: Cargar código de ejemplo
-- **Usuario**: Personalizar nombre de usuario para logs
+- **Usuario**: Personalizar nombre para los logs
 
-##### 📊 Pestañas de Resultados
-1. **📋 Resumen**: Estadísticas generales del análisis
-2. **🔤 Tokens**: Lista completa de tokens reconocidos
-3. **🔴 Errores Léxicos**: Caracteres no reconocidos
-4. **🔴 Errores Sintácticos**: Errores de gramática
-5. **🔴 Errores Semánticos**: Errores de tipos y alcance
-6. **🌳 AST**: Árbol de sintaxis abstracta generado
-
-##### 📝 Generación Automática de Logs
+#### 📝 Generación de Logs:
 - Los logs se guardan automáticamente en `logs/`
-- Formato: `analisis_[analizador]-[usuario]-[fecha].txt`
-- Incluyen todos los errores y estadísticas
+- Formato: `analisis_unificado-[usuario]-[fecha].txt`
+- Incluyen solo errores confirmados por los 3 analizadores
 
-### Ejecución Individual de Analizadores
+### Ejecución Individual de Analizadores (Opcional)
 
 #### Analizador Completo (Ariel)
 ```bash
